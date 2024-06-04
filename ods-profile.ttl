@@ -197,13 +197,14 @@ ods:
     skos:member ods:endpoint ;
     skos:member ods:function ;
     skos:member ods:hash_algorithm ;
+	skos:member ods:encryption_algorithm ;
     skos:member ods:json_path ;
+	skos:member ods:json_string_path ;
     skos:member ods:log_level ;
     skos:member ods:notification_level ;
     skos:member ods:operand ;
     skos:member ods:path ;
     skos:member ods:quantity ;
-    skos:member ods:recurrence_rate ;
     skos:member ods:replace_with ;
     skos:member ods:role ;
     skos:member ods:state ;
@@ -273,6 +274,7 @@ ods:encrypt
 	:includedIn odrl:use ;
 	rdfs:label "Encrypt"@en ;
 	skos:definition "To encrpyt a data artifact or parts of it to secure it during transmission and to prevent unauthorized access. The encryption algorithm might be specified by a constraint."@en ;
+	skos:note "The encryption algorithm can be specified using ods:encryption_algorithm (eg. AES)."@en ;
 	skos:scopeNote "Non-Normative"@en .
 
 ods:hash
@@ -387,11 +389,27 @@ ods:hash_algorithm
 	skos:note "For example, SHA256."@en ;
     skos:scopeNote "Non-Normative"@en .
 
+ods:encryption_algorithm
+	a :LeftOperand, owl:NamedIndividual, skos:Concept ;
+	rdfs:isDefinedBy ods: ;
+	rdfs:label "Encryption Algorithm"@en ;
+	skos:definition "It indicates the encryption algorithm to be used."@en ;
+	skos:note "For example, AES."@en ;
+    skos:scopeNote "Non-Normative"@en .
+
 ods:json_path
 	a :LeftOperand, owl:NamedIndividual, skos:Concept ;
 	rdfs:isDefinedBy ods: ;
 	rdfs:label "JSONPath"@en ;
 	skos:definition "An expression that refers to a part of a JSON structured data."@en ;
+    skos:scopeNote "Non-Normative"@en .
+
+ods:json_string_path
+	a :LeftOperand, owl:NamedIndividual, skos:Concept ;
+	rdfs:isDefinedBy ods: ;
+	rdfs:label "JSON String Path"@en ;
+	skos:definition "An expression that refers to a part of a JSON structured data."@en ;
+	skos:note "It is used by Rego policy language."@en ;
     skos:scopeNote "Non-Normative"@en .
 
 ods:log_level
@@ -425,13 +443,6 @@ ods:path
 	skos:definition "An expression that refers to a file within a system, or an element within a hierarchical structure."@en ;
 	skos:scopeNote "Non-Normative"@en .
 
-ods:recurrence_rate
-	a :LeftOperand, owl:NamedIndividual, skos:Concept ;
-	rdfs:isDefinedBy ods: ;
-	rdfs:label "Recurrence Rate"@en ;
-	skos:definition "The number of times an action is exercised."@en ;
-    skos:scopeNote "Non-Normative"@en .
-
 ods:replace_with
 	a :LeftOperand, owl:NamedIndividual, skos:Concept ;
 	rdfs:isDefinedBy ods: ;
@@ -444,7 +455,7 @@ ods:role
 	a :LeftOperand, owl:NamedIndividual, skos:Concept ;
 	rdfs:isDefinedBy ods: ;
 	rdfs:label "Role"@en ;
-	skos:definition "Role refers to an end users's role."@en ;
+	skos:definition "Role refers to an end user's role."@en ;
     skos:scopeNote "Non-Normative"@en .
 
 ods:state
@@ -511,28 +522,28 @@ ods:on_action_operated
 	a :RightOperand, owl:NamedIndividual, skos:Concept ;
 	rdfs:isDefinedBy ods: ;
 	rdfs:label "On action operated"@en ;
-	skos:definition "Log usage information or notify a party on action operated."@en ;
+	skos:definition "Log usage information or notify a party when the action of the rule is operated."@en ;
     skos:scopeNote "Non-Normative"@en .
 
 ods:on_allow 
 	a :RightOperand, owl:NamedIndividual, skos:Concept ;
 	rdfs:isDefinedBy ods: ;
 	rdfs:label "On allow"@en ;
-	skos:definition "Log usage information or notify a party on allow."@en ;
+	skos:definition "Log usage information or notify a party when performing the action of the rule is permitted."@en ;
     skos:scopeNote "Non-Normative"@en .
 
 ods:on_deny
 	a :RightOperand, owl:NamedIndividual, skos:Concept ;
 	rdfs:isDefinedBy ods: ;
 	rdfs:label "On deny"@en ;
-	skos:definition "Log usage information or notify a party on deny."@en ;
+	skos:definition "Log usage information or notify a party when performing the action of the rule is prohibited."@en ;
     skos:scopeNote "Non-Normative"@en .
 
 ods:on_duty_exercised
 	a :RightOperand, owl:NamedIndividual, skos:Concept ;
 	rdfs:isDefinedBy ods: ;
 	rdfs:label "On duty exercised"@en ;
-	skos:definition "Log usage information or notify a party on duty exercised."@en ;
+	skos:definition "Log usage information or notify a party when the action of the duty is executed."@en ;
     skos:scopeNote "Non-Normative"@en .
 
 ods:pseudonymized
