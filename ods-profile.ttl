@@ -164,6 +164,14 @@ ods:
 ## SKOS Collections for Grouping related concepts.
 ## ods Vocabulary
 
+<https://example.com/ods/odrl-profile/#UsageControlComponentConcepts>
+    a skos:Collection ;
+    skos:prefLabel "Usage Control Component"@en ;
+    skos:scopeNote "oac Vocabulary Terms"@en ;
+    skos:member :UsageControlComponent ;
+    skos:member :interfaceDescription ;
+    skos:member :endpointURI .
+
 <https://example.com/ods/odrl-profile/#constraintRelationalOperators>
 	a skos:Collection ;
 	skos:prefLabel "Constraint Operators"@en ;
@@ -197,9 +205,9 @@ ods:
     skos:member ods:endpoint ;
     skos:member ods:function ;
     skos:member ods:hash_algorithm ;
-	skos:member ods:encryption_algorithm ;
+    skos:member ods:encryption_algorithm ;
     skos:member ods:json_path ;
-	skos:member ods:json_string_path ;
+    skos:member ods:json_string_path ;
     skos:member ods:log_level ;
     skos:member ods:notification_level ;
     skos:member ods:operand ;
@@ -232,6 +240,39 @@ ods:
 	skos:member ods:sum .
 
 ## ODRL Profile for Data Sovereignty
+## Data Usage Control concepts
+
+:UsageControlComponent
+	a rdfs:Class, owl:Class, skos:Concept ;
+	rdfs:isDefinedBy ods: ;
+	skos:definition "It refers to data usage control components."@en ;
+	skos:note "It is optional to explicitly specify a data usage control component that is responsible for providing context information or executing a duty action."@en ;
+	rdfs:label "Usage Control Component"@en .
+
+:usageControlComponent
+	a rdf:Property , owl:ObjectProperty, skos:Concept ;
+	rdfs:isDefinedBy ods: ;
+	rdfs:label "has Usage Control Component"@en ;
+	skos:definition "?"@en ;
+	rdfs:domain :UsageControlComponent ;
+	rdfs:range :UsageControlComponent  .
+
+:interfaceDescription
+	a rdf:Property , owl:ObjectProperty, skos:Concept ;
+	rdfs:isDefinedBy ods: ;
+	rdfs:label "Interface Description"@en ;
+	skos:definition "The reference to a URI that provides the interface description of a usage control endpoint."@en ;
+	rdfs:domain :UsageControlComponent ;
+	rdfs:range :UsageControlComponent  .
+
+:endpointURI
+	a rdf:Property , owl:ObjectProperty, skos:Concept ;
+	rdfs:isDefinedBy ods: ;
+	rdfs:label "Endpoint URI"@en ;
+	skos:definition "The reference to a URI that expresses an exact endpoint of that usage control endpoint."@en ;
+	rdfs:domain :UsageControlComponent ;
+	rdfs:range :UsageControlComponent  .
+
 ## ods Operators
 
 ods:in
@@ -370,7 +411,6 @@ ods:endpoint
 	rdfs:isDefinedBy ods: ;
 	rdfs:label "Endpoint"@en ;
 	skos:definition "An endpoint refers to a specific address or connection point."@en ;
-	skos:note "For example, an endpoint for a particular Policy Information Point (PIP) can be specified."@en ;
     skos:scopeNote "Non-Normative"@en .
 
 ods:function
