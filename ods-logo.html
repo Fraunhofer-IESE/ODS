@@ -1,0 +1,1108 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><style>span.example-title{text-transform:none}
+:is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
+div.illegal-example{color:red}
+div.illegal-example p{color:#000}
+aside.example div.example{border-left-width:.1em;border-color:#999;background:#fff}</style><style>.issue-label{text-transform:initial}
+.warning>p:first-child{margin-top:0}
+.warning{padding:.5em;border-left-width:.5em;border-left-style:solid}
+span.warning{padding:.1em .5em .15em}
+.issue.closed span.issue-number{text-decoration:line-through}
+.issue.closed span.issue-number::after{content:" (Closed)";font-size:smaller}
+.warning{border-color:#f11;border-color:var(--warning-border,#f11);border-width:.2em;border-style:solid;background:#fbe9e9;background:var(--warning-bg,#fbe9e9);color:#000;color:var(--text,#000)}
+.warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
+li.task-list-item{list-style:none}
+input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
+.issue a.respec-gh-label{padding:5px;margin:0 2px 0 2px;font-size:10px;text-transform:none;text-decoration:none;font-weight:700;border-radius:4px;position:relative;bottom:2px;border:none;display:inline-block}</style><style>dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}</style><link rel="preconnect" crossorigin="anonymous" href="https://www.w3.org" class="removeOnSave"><link rel="preload" as="script" href="https://www.w3.org/scripts/TR/2021/fixup.js" class="removeOnSave"><link rel="preload" as="style" href="https://www.w3.org/StyleSheets/TR/2021/base.css" class="removeOnSave"><link rel="preload" as="style" href="https://www.w3.org/StyleSheets/TR/2021/dark.css" class="removeOnSave"><link rel="preload" as="image" crossorigin="anonymous" href="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" class="removeOnSave"><link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/base.css" class="removeOnSave">
+    <meta charset="utf-8">
+    <title>ODRL Profile for Data Sovereignty</title>
+    
+    
+  <style id="respec-ui-styles" class="removeOnSave">.respec-modal .close-button{position:absolute;z-index:inherit;padding:.2em;font-weight:700;cursor:pointer;margin-left:5px;border:none;background:0 0}
+#respec-ui{position:fixed;display:flex;flex-direction:row-reverse;top:20px;right:20px;width:202px;text-align:right;z-index:9000}
+#respec-pill,.respec-info-button{height:2.4em;background:#fff;background:var(--bg,#fff);color:#787878;color:var(--tocnav-normal-text,#787878);border:1px solid #ccc;box-shadow:1px 1px 8px 0 rgba(100,100,100,.5);box-shadow:1px 1px 8px 0 var(--tocsidebar-shadow,rgba(100,100,100,.5));padding:.2em 0}
+.respec-info-button{border:none;opacity:.75;border-radius:2em;margin-right:1em;min-width:3.5em;will-change:opacity}
+.respec-info-button:focus,.respec-info-button:hover{opacity:1;transition:opacity .2s}
+#respec-pill{width:4.8em}
+#respec-pill:not(:disabled){animation:respec-fadein .6s ease-in-out}
+@keyframes respec-fadein{
+from{margin-top:-1.2em;border-radius:50%;border:.2em solid rgba(100,100,100,.5);box-shadow:none;height:4.8em}
+to{margin-top:0;border:1px solid #ccc;border-radius:0;box-shadow:1px 1px 8px 0 rgba(100,100,100,.5);height:2.4em}
+}
+#respec-pill:disabled{margin-top:-1.2em;position:relative;border:none;box-shadow:none;border-radius:50%;width:4.8em;height:4.8em;padding:0}
+#respec-pill:disabled::after{position:absolute;content:'';inset:-.2em;border-radius:50%;border:.2em solid rgba(100,100,100,.5);border-left:.2em solid transparent;animation:respec-spin .5s infinite linear}
+@media (prefers-reduced-motion){
+#respec-pill:not(:disabled){animation:none}
+#respec-pill:disabled::after{animation:none;border-left:.2em solid rgba(100,100,100,.5)}
+}
+@keyframes respec-spin{
+0%{transform:rotate(0)}
+100%{transform:rotate(360deg)}
+}
+.respec-hidden{visibility:hidden;opacity:0;transition:visibility 0s .2s,opacity .2s linear}
+.respec-visible{visibility:visible;opacity:1;transition:opacity .2s linear}
+#respec-pill:focus,#respec-pill:hover{color:#000;background-color:#f5f5f5;transition:color .2s}
+#respec-menu{position:absolute;margin:0;padding:0;font-family:sans-serif;background:var(--bg,#fff);color:var(--text,#000);box-shadow:1px 1px 8px 0 rgba(100,100,100,.5);width:200px;display:none;text-align:left;margin-top:32px;font-size:.8em}
+#respec-menu:not([hidden]){display:block}
+#respec-menu li{list-style-type:none;margin:0;padding:0}
+.respec-save-buttons{display:grid;grid-template-columns:repeat(auto-fill,minmax(47%,2fr));grid-gap:.5cm;padding:.5cm}
+.respec-save-button:link{padding-top:16px;color:var(--def-text,#fff);background:var(--def-bg,#2a5aa8);justify-self:stretch;height:1cm;text-decoration:none;text-align:center;font-size:inherit;border:none;border-radius:.2cm}
+.respec-save-button:link:hover{color:var(--def-text,#fff);background:var(--defrow-border,#2a5aa8);padding:0;margin:0;border:0;padding-top:16px}
+.respec-save-button:link:focus{background:var(--tocnav-active-bg,#193766);color:var(--tocnav-active-text,#000)}
+#respec-pill:focus,#respec-ui button:focus,.respec-option:focus{outline:0;outline-style:none}
+#respec-pill-error{background-color:red;color:#fff}
+#respec-pill-warning{background-color:orange;color:#fff}
+.respec-error-list,.respec-warning-list{margin:0;padding:0;font-family:sans-serif;font-size:.85em}
+.respec-warning-list{background-color:#fffbe6}
+:is(.respec-warning-list,.respec-error-list)>li{list-style-type:none;margin:0;padding:.5em 0;padding-left:2em;padding-right:.5em}
+:is(.respec-warning-list,.respec-error-list)>li+li{margin-top:.5rem}
+:is(.respec-warning-list,.respec-error-list)>li:before{position:absolute;left:.4em}
+:is(.respec-warning-list,.respec-error-list) p{padding:0;margin:0}
+.respec-warning-list>li{color:#5c3b00;border-bottom:thin solid #fff5c2}
+.respec-error-list,.respec-error-list li{background-color:#fff0f0}
+.respec-warning-list>li::before{content:"⚠️"}
+.respec-error-list>li::before{content:"💥"}
+.respec-error-list>li{color:#5c3b00;border-bottom:thin solid #ffd7d7}
+:is(.respec-warning-list,.respec-error-list)>li li{list-style:disc}
+#respec-overlay{display:block;position:fixed;z-index:10000;top:0;left:0;height:100%;width:100%;background:#000}
+.respec-show-overlay{transition:opacity .2s linear;opacity:.5}
+.respec-hide-overlay{transition:opacity .2s linear;opacity:0}
+.respec-modal{display:block;position:fixed;z-index:11000;top:10%;background:var(--bg,#fff);color:var(--text,#000);border:5px solid #666;border-color:var(--tocsidebar-shadow,#666);min-width:20%;padding:0;max-height:80%;overflow-y:auto;margin:0 -.5cm;left:20%;max-width:75%;min-width:60%}
+.respec-modal h3{margin:0;padding:.2em;left:0!important;text-align:center;background:var(--tocsidebar-shadow,#ddd);color:var(--text,#000);font-size:1em}
+#respec-menu button.respec-option{background:var(--bg,#fff);color:var(--text,#000);border:none;width:100%;text-align:left;font-size:inherit;padding:1.2em 1.2em}
+#respec-menu button.respec-option:hover{background-color:var(--tocnav-hover-bg,#eee);color:var(--tocnav-hover-text,#000)}
+.respec-cmd-icon{padding-right:.5em}
+#respec-ui button.respec-option:first-child{margin-top:0}
+#respec-ui button.respec-option:last-child{border:none;border-radius:inherit;margin-bottom:0}
+.respec-button-copy-paste{position:absolute;height:28px;width:40px;cursor:pointer;background-image:linear-gradient(#fcfcfc,#eee);border:1px solid #90b8de;border-left:0;border-radius:0 0 3px 0;-webkit-user-select:none;user-select:none;-webkit-appearance:none;top:0;left:127px}
+@media print{
+#respec-ui{display:none}
+}
+.respec-iframe{width:100%;min-height:550px;height:100%;overflow:hidden;padding:0;margin:0;border:0}
+.respec-iframe:not(.ready){background:url(https://respec.org/xref/loader.gif) no-repeat center}
+.respec-iframe+a[href]{font-size:.9rem;float:right;margin:0 .5em .5em;border-bottom-width:1px}
+p:is(.respec-hint,.respec-occurrences){display:block;margin-top:.5em}
+.respec-plugin{text-align:right;color:rgb(120,120,120,.5);font-size:.6em}</style><style id="respec-mainstyle">@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+cite .bibref{font-style:normal}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none;display:inline-block}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+.self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+aside.example .marker>a.self-link{color:inherit}
+.header-wrapper{display:flex;align-items:baseline}
+:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2){position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.5}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3)+a.self-link{top:-.2em}
+:is(h4,h5,h6)+a.self-link::before{color:#000}
+@media (max-width:767px){
+dd{margin-left:0}
+}
+@media print{
+.removeOnSave{display:none}
+}</style><link rel="dns-prefetch" crossorigin="anonymous" href="https://api.specref.org" class="removeOnSave"><link rel="preconnect" crossorigin="anonymous" href="https://respec.org" class="removeOnSave"><link rel="preload" as="script" href="https://www.w3.org/Tools/respec/respec-highlight" class="removeOnSave"><link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-UD"><meta name="color-scheme" content="light"><meta name="description" content="The Open Digital Rights Language (ODRL) is a policy expression language that provides a flexible and interoperable information model, vocabulary, and encoding mechanisms for representing statements about the usage of content and services. The ODRL Vocabulary and Expression describes the terms used in ODRL policies and how to encode them."><style>.hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
+@media (prefers-color-scheme:dark){
+.hljs{--base:#282c34;--mono-1:#abb2bf;--mono-2:#818896;--mono-3:#5c6370;--hue-1:#56b6c2;--hue-2:#61aeee;--hue-3:#c678dd;--hue-4:#98c379;--hue-5:#e06c75;--hue-5-2:#be5046;--hue-6:#d19a66;--hue-6-2:#e6c07b}
+}
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;color:var(--mono-1,#383a42);background:#fafafa;background:var(--base,#fafafa)}
+.hljs-comment,.hljs-quote{color:#717277;color:var(--mono-3,#717277);font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4;color:var(--hue-3,#a626a4)}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;color:var(--hue-5,#ca4706);font-weight:700}
+.hljs-literal{color:#0b76c5;color:var(--hue-1,#0b76c5)}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c;color:var(--hue-4,#42803c)}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01;color:var(--hue-6-2,#9a6a01)}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801;color:var(--hue-6,#986801)}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3;color:var(--hue-2,#336ae3)}
+.hljs-emphasis{font-style:italic}
+.hljs-strong{font-weight:700}
+.hljs-link{text-decoration:underline}</style><style class="removeOnSave">var:hover{text-decoration:underline;cursor:pointer}
+var.respec-hl{color:var(--color,#000);background-color:var(--bg-color);box-shadow:0 0 0 2px var(--bg-color)}
+@media (prefers-color-scheme:dark){
+var.respec-hl{filter:saturate(.9) brightness(.9)}
+}
+var.respec-hl-c1{--bg-color:#f4d200}
+var.respec-hl-c2{--bg-color:#ff87a2}
+var.respec-hl-c3{--bg-color:#96e885}
+var.respec-hl-c4{--bg-color:#3eeed2}
+var.respec-hl-c5{--bg-color:#eacfb6}
+var.respec-hl-c6{--bg-color:#82ddff}
+var.respec-hl-c7{--bg-color:#ffbcf2}
+@media print{
+var.respec-hl{background:0 0;color:#000;box-shadow:unset}
+}</style><style>var{position:relative;cursor:pointer}
+var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
+var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#222}
+var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#222;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
+var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}</style><meta name="monetization" content="$respec.org" class="removeOnSave"><script id="initialUserConfig" type="application/json">{
+  "specStatus": "unofficial",
+  "editors": [
+    {
+      "name": "Arghavan Hosseinzadeh",
+      "url": "https://github.com/hosseinzadeha",
+      "company": " <img src='https://img.shields.io/badge/Fraunhofer-IESE-179C7D.svg?logo=fraunhofergesellschaft'/> ",
+      "companyURL": "https://www.iese.fraunhofer.de/"
+    },
+    {
+      "name": "Robin Brandstädter",
+      "url": "https://github.com/Brandstaedter",
+      "company": " <img src='https://img.shields.io/badge/Fraunhofer-IESE-179C7D.svg?logo=fraunhofergesellschaft'/> ",
+      "companyURL": "https://www.iese.fraunhofer.de/"
+    },
+    {
+      "name": "Jessica Chwalek",
+      "url": "https://github.com/jsc-chwlk",
+      "company": " <img src='https://img.shields.io/badge/Fraunhofer-IESE-179C7D.svg?logo=fraunhofergesellschaft'/> ",
+      "companyURL": "https://www.iese.fraunhofer.de/"
+    }
+  ],
+  "github": "https://github.com/International-Data-Spaces-Association/ODRL-profile-for-IDS/tree/main",
+  "shortName": "ods",
+  "xref": "web-platform",
+  "group": "odrl",
+  "otherLinks": [
+    {
+      "key": "Download Serialization",
+      "data": [
+        {
+          "value": "link to ttl",
+          "href": "https://gitlab.cc-asp.fraunhofer.de/iese-ids/odrl-profile/-/blob/develop/ods-profile.ttl?ref_type=heads"
+        }
+      ]
+    },
+    {
+      "key": "License",
+      "data": [
+        {
+          "value": "link to license",
+          "href": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      ]
+    }
+  ],
+  "publishISODate": "2024-06-25T00:00:00.000Z",
+  "generatedSubtitle": "Unofficial Draft 25 June 2024"
+}</script></head>
+  <body class="h-entry toc-sidebar" data-cite="HTML INFRA URL WEBIDL DOM FETCH"><p id="toc-nav"><a id="toc-jump" href="#toc"><span aria-hidden="true">↑</span> <span>Jump to Table of Contents</span></a><a id="toc-toggle" href="#toc"><span aria-hidden="true">←</span> <span>Collapse Sidebar</span></a></p><div id="respec-ui" class="removeOnSave"><button id="respec-pill" aria-controls="respec-menu" aria-expanded="false" aria-haspopup="true" aria-label="ReSpec Menu">ReSpec</button><ul id="respec-menu" role="menu" aria-labelledby="respec-pill" hidden=""><li role="menuitem"><button class="respec-option" id="respec-button-search-specref">
+      <span class="respec-cmd-icon" aria-hidden="true">🔎<!---0.921186%--></span> Search Specref<!---0.921186%-->…
+    </button><!---0.921186%--></li><li role="menuitem"><button class="respec-option" id="respec-button-search-definitions">
+      <span class="respec-cmd-icon" aria-hidden="true">📚<!---0.921186%--></span> Search definitions<!---0.921186%-->…
+    </button><!---0.921186%--></li><li role="menuitem"><button class="respec-option" id="respec-button-about-35.1.1">
+      <span class="respec-cmd-icon" aria-hidden="true">ℹ️<!---0.921186%--></span> About 35.1.1<!---0.921186%-->…
+    </button><!---0.921186%--></li><li role="menuitem"><button class="respec-option" id="respec-button-export">
+      <span class="respec-cmd-icon" aria-hidden="true">💾<!---0.921186%--></span> Export<!---0.921186%-->…
+    </button><!---0.921186%--></li></ul></div><div class="head">
+    <!---0.921186%-->
+    <h1 id="title" class="title">ODRL Profile for Data Sovereignty</h1><!---0.921186%--> <!---0.921186%-->
+    <p id="w3c-state">Unofficial Draft<!---0.921186%--><!---0.921186%--> <!---0.921186%--><time class="dt-published" datetime="2024-06-25">25 June 2024<!---0.921186%--></time><!---0.921186%--><!---0.921186%--></p>
+    <details open="">
+      <summary>More details about this document<!---0.921186%--></summary>
+      <dl>
+        <!---0.921186%-->
+        <dt>Latest published version:<!---0.921186%--></dt><dd>
+                <a href="https://www.w3.org/ods/">https://www.w3.org/ods/<!---0.921186%--></a><!---0.921186%-->
+              </dd><!---0.921186%-->
+        <dt>Latest editor's draft:<!---0.921186%--></dt><dd><a href="https://international-data-spaces-association.github.io/ODRL-profile-for-IDS/">https://international-data-spaces-association.github.io/ODRL-profile-for-IDS/<!---0.921186%--></a></dd><!---0.921186%-->
+        <dt>History:<!---0.921186%--></dt><!---0.921186%--><dd>
+                    <a href="https://github.com/International-Data-Spaces-Association/ODRL-profile-for-IDS/tree/main/commits/">Commit history<!---0.921186%--></a>
+                  </dd><!---0.921186%--><!---0.921186%-->
+        <!---0.921186%-->
+        <!---0.921186%-->
+        <!---0.921186%-->
+        <!---0.921186%-->
+        <!---0.921186%-->
+        <dt>Editors:<!---0.921186%--></dt><dd class="editor p-author h-card vcard">
+    <a class="u-url url p-name fn" href="https://github.com/hosseinzadeha">Arghavan Hosseinzadeh<!---0.921186%--></a> (<a class="p-org org h-org" href="https://www.iese.fraunhofer.de/"> <img src="https://img.shields.io/badge/Fraunhofer-IESE-179C7D.svg?logo=fraunhofergesellschaft"> <!---0.921186%--></a><!---0.921186%-->)<!---0.921186%-->
+  </dd><dd class="editor p-author h-card vcard">
+    <a class="u-url url p-name fn" href="https://github.com/Brandstaedter">Robin Brandstädter<!---0.921186%--></a> (<a class="p-org org h-org" href="https://www.iese.fraunhofer.de/"> <img src="https://img.shields.io/badge/Fraunhofer-IESE-179C7D.svg?logo=fraunhofergesellschaft"> <!---0.921186%--></a><!---0.921186%-->)<!---0.921186%-->
+  </dd><dd class="editor p-author h-card vcard">
+    <a class="u-url url p-name fn" href="https://github.com/jsc-chwlk">Jessica Chwalek<!---0.921186%--></a> (<a class="p-org org h-org" href="https://www.iese.fraunhofer.de/"> <img src="https://img.shields.io/badge/Fraunhofer-IESE-179C7D.svg?logo=fraunhofergesellschaft"> <!---0.921186%--></a><!---0.921186%-->)<!---0.921186%-->
+  </dd><!---0.921186%--><!---0.921186%-->
+        <!---0.921186%-->
+        <!---0.921186%-->
+        <dt>Feedback:<!---0.921186%--></dt><dd>
+        <a href="https://github.com/International-Data-Spaces-Association/ODRL-profile-for-IDS/tree/main/">GitHub International-Data-Spaces-Association/ODRL-profile-for-IDS<!---0.921186%--></a>
+        (<a href="https://github.com/International-Data-Spaces-Association/ODRL-profile-for-IDS/tree/main/pulls/">pull requests</a>,
+        <a href="https://github.com/International-Data-Spaces-Association/ODRL-profile-for-IDS/tree/main/issues/new/choose">new issue</a>,
+        <a href="https://github.com/International-Data-Spaces-Association/ODRL-profile-for-IDS/tree/main/issues/">open issues</a>)
+      </dd><!---0.921186%--><!---0.921186%-->
+        <!---0.921186%-->
+        <dt>Download Serialization<!---0.921186%--></dt><dd>
+    <a href="https://gitlab.cc-asp.fraunhofer.de/iese-ids/odrl-profile/-/raw/develop/ods-profile.ttl?inline=false"><img src="https://img.shields.io/badge/TTL-format-blue.svg?logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9Jy0yMC4yMzcgMCA1MjUuMzM1IDUyNS4zMzUnPgogICAgPHJlY3QgeT0nNDAuNDczJyB3aWR0aD0nNDg0Ljg2MicgaGVpZ2h0PSc0ODQuODYyJy8+CiAgICA8cmVjdCB5PSc1MC44MDgnIHg9JzkuNDc3JyBmaWxsPScjRkZGRkZGJyB3aWR0aD0nNDY0LjE5MicgaGVpZ2h0PSczMjkuODQ3Jy8+CiAgICA8cGF0aCBkPSdNMzgzLjQ3NiwyNjcuMzQzYy0yLjU0NC0xLjM0Ni01LjE0LTIuNDkzLTcuNzQzLTMuNTE2bDEuODYzLTAuMTVjMCwwLTE2LjYwOC03LjM1NC0xOC4wNTctNjAuNzIyICBjLTEuNDM4LTUzLjM3MiwxNS44MjgtNjIuNDc4LDE1LjgyOC02Mi40NzhsLTIuNDgsMC4xMDljMTMuMDQ1LTYuNjksMjQuMjY1LTE3LjI2NywzMS42NjktMzEuMjE2ICBjMTkuMjk1LTM2LjI5MSw1LjQ4OC04MS4zNjItMzAuODEtMTAwLjY1N0MzMzcuNDM2LTEwLjU2MywyOTIuMzc0LDMuMjA3LDI3My4wOSwzOS41M2MtNy45MjcsMTQuODk5LTEwLjE3OCwzMS4yNzMtNy42NzcsNDYuNzMzICBsLTAuODUxLTEuMzA2YzAsMCw0LjM3MywxOS4zNjUtNDEuMDMyLDQ3LjU1Yy00NS4zOTcsMjguMi02NS44NzcsMTQuMTU5LTY1Ljg3NywxNC4xNTlsMS4zMDIsMS45MjUgIGMtMS4yOTgtMC44MDMtMi41NDQtMS42MjQtMy45MDEtMi4zMzNjLTM2LjMwNi0xOS4yOTQtODEuMzgtNS41MDktMTAwLjY2NywzMC44MDRjLTE5LjI4MSwzNi4zMDktNS40ODksODEuMzY1LDMwLjgxMywxMDAuNjY4ICBjMjcuMDY0LDE0LjM2NCw1OC45NzQsMTAuMzYsODEuNDYxLTcuNjU1bC0wLjQ4NywwLjk0NmMwLDAsMTYuNTMxLTEzLjU5OSw2NC4xNiwxMS45NzNjMzcuNjAxLDIwLjE3OCw0My4xODQsMzkuOTU2LDQzLjg5OSw0Ny4zODMgIGMtMC45ODMsMjcuNTcsMTMuMzg4LDU0LjYxOCwzOS4zODksNjguNDMzYzM2LjMwMSwxOS4yOTksODEuMzc0LDUuNDk4LDEwMC42NTctMzAuODA0ICBDNDMzLjU3MSwzMzEuNzA0LDQxOS43ODYsMjg2LjYyNCwzODMuNDc2LDI2Ny4zNDN6IE0yOTkuNTQyLDI3Ny4xMjhjLTYuMDE4LDIuMTI5LTIzLjIwMyw0LjQ4Ny01OS4zODktMTQuOTIxICBjLTM5LjE4Ny0yMS4wNC00NS4wMDUtMzguNjE1LTQ1Ljg1NS00My44OTFjMC41NTctNi40MDEsMC4yMDItMTIuNzkxLTAuODkxLTE5LjAybDAuMjM5LDAuMzU5YzAsMC0zLjE4OS0xNy4wOTYsNDEuNjUtNDQuOTQzICBjNDAuMTMzLTI0LjkwOCw1OC4zNzYtMTkuOTU1LDYxLjc3MS0xOC42NTNjMi4xODUsMS40ODUsNC40NSwyLjg2Nyw2LjgyNSw0LjEzMWM0LjUxOCwyLjM5OCw5LjE3NCw0LjI4MywxMy44ODgsNS42NzIgIGM1LjUyLDUuMjU3LDE1LjY3OCwyMC4xNzgsMTYuNzMzLDU5LjQxM2MxLjA3OCwzOS41MzUtMTAuNTMzLDU0Ljc3OS0xNi44NjUsNjAuMTY4QzMxMS4xMjIsMjY4LjM5OSwzMDUuMDIyLDI3Mi4zNCwyOTkuNTQyLDI3Ny4xMjggIHonIGZpbGw9JyMwQzQ3OUMnLz4KICAgIDxnPgogICAgICA8cGF0aCBkPSdNMjk0LjYzMSwzMi40Yy0yMS42NTksMjMuNjk0LTIyLjExOCw1OC41NDQtMS4yNDYsNzguMjY0Yy0xMC4zMTYtOS45MzUtMTAuMDkzLTMwLjYwOCwwLjMzLTUwLjM4NyAgIGMxLjM0Mi0xLjc3NCw1LjIyNC01Ljk2MSwxMC44OTgtNC4wNTVjMC41NjksMC4xOTQsMC45NTEsMC4yNDUsMS4xNywwLjIxM2MxLjI4NCwwLjI3OCwyLjYwMSwwLjQzOSwzLjk2LDAuMzgxICAgYzguNjIyLTAuMzkzLDE1LjI4OC03LjY4NCwxNC44OTgtMTYuMzA3Yy0wLjE3NS0zLjg2OC0xLjc4LTcuMjkyLTQuMjYtOS45MmMyMC4wMDctMTMuMTA3LDQyLjk2OC0xNC42MSw1Mi4zNzUtNi4wMTZsMC4zNTksMC4wMjUgICBDMzUxLjYyNSw0Ljk3LDMxNi40OTMsOC40NzYsMjk0LjYzMSwzMi40eicgZmlsbD0nI0ZGRkZGRicvPgogICAgPC9nPgogICAgPGc+CiAgICAgIDxwYXRoIGQ9J003Ni4yMDUsMjUxLjM4MWMtMC4xODQtMC4xOS0wLjM3MS0wLjQwNi0wLjU2Mi0wLjU5OGMwLjEyMSwwLjEyNSwwLjIzNSwwLjI3OSwwLjM3OCwwLjQwN0w3Ni4yMDUsMjUxLjM4MXogICAnIGZpbGw9JyNGRkZGRkYnLz4KICAgICAgPHBhdGggZD0nTTc2Ljg5NCwxNzIuNTJjLTIxLjY2MywyMy42OTQtMjIuMTE0LDU4LjU0MS0xLjI1MSw3OC4yNjRjLTEwLjMxMy05LjkzNS0xMC4wOTItMzAuNjA4LDAuMzMxLTUwLjM4NyAgIGMxLjM0NS0xLjc3OCw1LjIzMS01Ljk2MSwxMC45MDYtNC4wNTVjMC41NjUsMC4xOTUsMC45NDYsMC4yNDIsMS4xNjcsMC4yMTJjMS4yODMsMC4yNzUsMi42MDMsMC40NCwzLjk1OSwwLjM3NyAgIGM4LjYyMy0wLjM5MiwxNS4yODgtNy42ODQsMTQuODk5LTE2LjMwM2MtMC4xNzktMy44NjctMS43ODItNy4yOTYtNC4yNTItOS45MmMxOS45OTUtMTMuMTA3LDQyLjk1OS0xNC42MTcsNTIuMzY2LTYuMDIxICAgbDAuMzU1LDAuMDNDMTMzLjg5MSwxNDUuMDg2LDk4Ljc1MSwxNDguNTkxLDc2Ljg5NCwxNzIuNTJ6JyBmaWxsPScjRkZGRkZGJy8+CiAgICA8L2c+CiAgICA8Zz4KICAgICAgPHBhdGggZD0nTTMwNi43MDEsMzcwLjAxNWMtMC4xODctMC4xOTEtMC4zNzQtMC40MDQtMC41NjQtMC41OTRjMC4xMTcsMC4xMjUsMC4yMzcsMC4yNzksMC4zNzgsMC40MDIgICBMMzA2LjcwMSwzNzAuMDE1eicgZmlsbD0nI0ZGRkZGRicvPgogICAgICA8cGF0aCBkPSdNMzA3LjM5LDI5MS4xNDVjLTIxLjY2NiwyMy43MDQtMjIuMTE4LDU4LjU1My0xLjI1NCw3OC4yNzZjLTEwLjMxNy05LjkzNS0xMC4wOS0zMC42MTEsMC4zMzEtNTAuMzg4ICAgYzEuMzQ0LTEuNzgxLDUuMjI3LTUuOTYsMTAuOTA2LTQuMDUzYzAuNTY4LDAuMTg5LDAuOTQxLDAuMjQyLDEuMTY2LDAuMjEyYzEuMjgyLDAuMjc3LDIuNjA1LDAuNDQsMy45NjMsMC4zODEgICBjOC42MTctMC4zOTYsMTUuMjgtNy42OTIsMTQuODkxLTE2LjMyYy0wLjE3Ni0zLjg2NC0xLjc4MS03LjI4OC00LjI1Mi05LjkxN2MyMC4wMDItMTMuMTAzLDQyLjk1OS0xNC42MSw1Mi4zNy02LjAxNmwwLjM1NSwwLjAyOSAgIEMzNjQuMzgzLDI2My43MTgsMzI5LjI0MSwyNjcuMjI2LDMwNy4zOSwyOTEuMTQ1eicgZmlsbD0nI0ZGRkZGRicvPgogICAgPC9nPgogICAgPGc+CiAgICAgIDx0ZXh0IHRyYW5zZm9ybT0nc2NhbGUoMC44NywxKScgeT0nNDk4JyB4PSczOCcgZm9udC1mYW1pbHk9J1ZlcmRhbmEnIGZvbnQtc2l6ZT0nMTEyJyBmb250LXdlaWdodD0nYm9sZCcgZmlsbD0nI0ZGRkZGRic+VFVSVExFPC90ZXh0PgogICAgPC9nPgo8L3N2Zz4="/><!---0.921186%--></a><!---0.921186%-->
+  </dd><!---0.921186%--><dt>License<!---0.921186%--></dt><dd>
+    <a href="https://www.apache.org/licenses/LICENSE-2.0.txt"><img src="https://img.shields.io/badge/apache_2.0-license-D22128.svg?logo=apache" /><!---0.921186%--></a><!---0.921186%-->
+  </dd><!---0.921186%--><!---0.921186%-->
+      </dl>
+    </details>
+    <!---0.921186%-->
+    <!---0.921186%-->
+    <p class="copyright">
+      Copyright ©
+      <!---0.921186%-->2024<!---0.921186%-->
+      the document editors/authors.
+      Text is available under the
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode">Creative Commons Attribution 4.0 International Public License<!---0.921186%--></a>; additional terms may apply.<!---0.921186%-->
+    </p><!---0.921186%-->
+    <hr title="Separator for header">
+  </div>
+    <section id="abstract" class="introductory"><!--OddPage--><h2>Abstract<!---0.921186%--></h2>
+      <p>The Open Digital Rights Language (ODRL) is a policy expression language that provides a flexible and interoperable information model, vocabulary, and encoding mechanisms for representing statements about the usage of content and services. The ODRL Vocabulary and Expression describes the terms used in ODRL policies and how to encode them.</p>
+      <p>The ODRL Profile for Data Sovereignty extends the core information model of ODRL by defining the terms to express usage restrictions, obligations and modifications. These policies can then be translated into technology-dependent policy languages (e.g., <a target="_blank" href="https://developer.mydata-control.de/language/">MYDATA Control Technologies Policy Language</a>) to technically enforce the restrictions within the systems.</p>
+    </section>
+    <section id="sotd" class="introductory"><!--OddPage--><h2>Status of This Document<!---0.921186%--></h2><!---0.921186%--><p>
+      This document is a draft of a potential specification. It has no official
+      standing of any kind and does not represent the support or consensus of
+      any standards organization.
+    </p>
+      <!-- <p>This is required.</p> -->
+    <!---0.921186%--><!---0.921186%--><!---0.921186%--><!---0.921186%--></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents<!---0.921186%--></h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract<!---0.921186%--></a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document<!---0.921186%--></a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1.<!---0.921186%--> </bdi>Introduction</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#ods-vocabulary"><bdi class="secno">2.<!---0.921186%--> </bdi>ods Vocabulary</a><!---0.921186%--><ol class="toc"><li class="tocline"><a class="tocxref" href="#data-usage-control-concepts"><bdi class="secno">2.1<!---0.921186%--> </bdi>Data Usage Control Concepts</a><!---0.921186%--><ol class="toc"><li class="tocline"><a class="tocxref" href="#term-usage-control-component"><bdi class="secno">2.1.1<!---0.921186%--> </bdi>Usage Control Component</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-usage-control-component-left-operand"><bdi class="secno">2.1.2<!---0.921186%--> </bdi>has Usage Control Component</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-interface-description"><bdi class="secno">2.1.3<!---0.921186%--> </bdi>Interface Description</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-endpoint-uri"><bdi class="secno">2.1.4<!---0.921186%--> </bdi>Endpoint URI</a><!---0.921186%--></li></ol></li><li class="tocline"><a class="tocxref" href="#constraint-operators"><bdi class="secno">2.2<!---0.921186%--> </bdi>Constraint Operators</a><!---0.921186%--><ol class="toc"><li class="tocline"><a class="tocxref" href="#term-in"><bdi class="secno">2.2.1<!---0.921186%--> </bdi>In</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-subset"><bdi class="secno">2.2.2<!---0.921186%--> </bdi>Subset</a><!---0.921186%--></li></ol></li><li class="tocline"><a class="tocxref" href="#actions-for-rules"><bdi class="secno">2.3<!---0.921186%--> </bdi>Actions for Rules</a><!---0.921186%--><ol class="toc"><li class="tocline"><a class="tocxref" href="#term-add"><bdi class="secno">2.3.1<!---0.921186%--> </bdi>Add</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-divide"><bdi class="secno">2.3.2<!---0.921186%--> </bdi>Divide</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-encrypt"><bdi class="secno">2.3.3<!---0.921186%--> </bdi>Encrypt</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-hash"><bdi class="secno">2.3.4<!---0.921186%--> </bdi>Hash</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-log"><bdi class="secno">2.3.5<!---0.921186%--> </bdi>Log</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-multiply"><bdi class="secno">2.3.6<!---0.921186%--> </bdi>Multiply</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-multiply"><bdi class="secno">2.3.7<!---0.921186%--> </bdi>Multiparty Computation</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-notify"><bdi class="secno">2.3.8<!---0.921186%--> </bdi>Notify</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-query"><bdi class="secno">2.3.9<!---0.921186%--> </bdi>Query</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-replace"><bdi class="secno">2.3.10<!---0.921186%--> </bdi>Replace</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-shuffle"><bdi class="secno">2.3.11<!---0.921186%--> </bdi>Shuffle</a><!---0.921186%--></li></ol></li><li class="tocline"><a class="tocxref" href="#usage-control-components"><bdi class="secno">2.4<!---0.921186%--> </bdi>Usage Control Components</a><!---0.921186%--><ol class="toc"><li class="tocline"><a class="tocxref" href="#term-pip"><bdi class="secno">2.4.1<!---0.921186%--> </bdi>Policy Information Point</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-pxp"><bdi class="secno">2.4.2<!---0.921186%--> </bdi>Policy Execution Point</a><!---0.921186%--></li></ol></li><li class="tocline"><a class="tocxref" href="#constraint-left-operands"><bdi class="secno">2.5<!---0.921186%--> </bdi>Constraint Left Operands</a><!---0.921186%--><ol class="toc"><li class="tocline"><a class="tocxref" href="#term-application"><bdi class="secno">2.5.1<!---0.921186%--> </bdi>Application</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-artifact-state"><bdi class="secno">2.5.2<!---0.921186%--> </bdi>Artifact State</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-endpoint"><bdi class="secno">2.5.3<!---0.921186%--> </bdi>Endpoint</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-function"><bdi class="secno">2.5.4<!---0.921186%--> </bdi>Function</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-hash-algorithm"><bdi class="secno">2.5.5<!---0.921186%--> </bdi>Hash Algorithm</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-encryption-algorithm"><bdi class="secno">2.5.6<!---0.921186%--> </bdi>Encryption Algorithm</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-json-path"><bdi class="secno">2.5.7<!---0.921186%--> </bdi>JSONPath</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-json-string-path"><bdi class="secno">2.5.8<!---0.921186%--> </bdi>JSON String Path</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-log-level"><bdi class="secno">2.5.9<!---0.921186%--> </bdi>Log Level</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-notification-level"><bdi class="secno">2.5.10<!---0.921186%--> </bdi>Notification Level</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-operand"><bdi class="secno">2.5.11<!---0.921186%--> </bdi>Operand</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-path"><bdi class="secno">2.5.12<!---0.921186%--> </bdi>Path</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-replace-with"><bdi class="secno">2.5.13<!---0.921186%--> </bdi>Replace With</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-role"><bdi class="secno">2.5.14<!---0.921186%--> </bdi>Role</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-state"><bdi class="secno">2.5.15<!---0.921186%--> </bdi>State</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-user"><bdi class="secno">2.5.16<!---0.921186%--> </bdi>User</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-xpath"><bdi class="secno">2.5.17<!---0.921186%--> </bdi>XPath</a><!---0.921186%--></li></ol></li><li class="tocline"><a class="tocxref" href="#constraint-right-operands"><bdi class="secno">2.6<!---0.921186%--> </bdi>Constraint Right Operands</a><!---0.921186%--><ol class="toc"><li class="tocline"><a class="tocxref" href="#term-anonymized"><bdi class="secno">2.6.1<!---0.921186%--> </bdi>Anonymized</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-combined"><bdi class="secno">2.6.2<!---0.921186%--> </bdi>Combined</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-encrypted"><bdi class="secno">2.6.3<!---0.921186%--> </bdi>Encrypted</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-maximum"><bdi class="secno">2.6.4<!---0.921186%--> </bdi>Maximum</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-minimum"><bdi class="secno">2.6.5<!---0.921186%--> </bdi>Minimum</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-on-action-operated"><bdi class="secno">2.6.6<!---0.921186%--> </bdi>On action operated</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-on-allow"><bdi class="secno">2.6.7<!---0.921186%--> </bdi>On allow</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-on-deny"><bdi class="secno">2.6.8<!---0.921186%--> </bdi>On deny</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-on-duty-exercised"><bdi class="secno">2.6.9<!---0.921186%--> </bdi>On duty exercised</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-pseudonymized"><bdi class="secno">2.6.10<!---0.921186%--> </bdi>Pseudonymized</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#term-sum"><bdi class="secno">2.6.11<!---0.921186%--> </bdi>Sum</a><!---0.921186%--></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#examples"><bdi class="secno">3.<!---0.921186%--> </bdi>Examples</a><!---0.921186%--><ol class="toc"><li class="tocline"><a class="tocxref" href="#modify-data"><bdi class="secno">3.1<!---0.921186%--> </bdi>Modify data</a><!---0.921186%--></li><li class="tocline"><a class="tocxref" href="#notify-data-provider"><bdi class="secno">3.2<!---0.921186%--> </bdi>Notify data provider</a><!---0.921186%--></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">4.<!---0.921186%--> </bdi>Conformance<!---0.921186%--></a><!---0.921186%--><ol class="toc"><li class="tocline"><a class="tocxref" href="#namespaces"><bdi class="secno">4.1<!---0.921186%--> </bdi>Namespaces</a><!---0.921186%--></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A.<!---0.921186%--> </bdi>References<!---0.921186%--></a><!---0.921186%--><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">A.1<!---0.921186%--> </bdi>Normative references<!---0.921186%--></a><!---0.921186%--></li></ol></li></ol></nav>
+    <section class="informative" id="introduction"><!--OddPage--><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1.<!---0.921186%--> </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div><p><em>This section is non-normative.<!---0.921186%--></em></p>
+      
+      <p>Data sovereignty is a key success factor for data-driven business models. As defined by <a target="_blank" href="https://internationaldataspaces.org/wp-content/uploads/dlm_uploads/IDSA-Position-Paper-Usage-Control-in-the-IDS-V3..pdf">Usage Control in International Data Spaces</a>, data sovereignty has the goal of providing data providers with full control over their data. 
+      </p>
+      <p>Data Usage Control is known as a conceptual and technical solution to cope with the challenges of data sovereignty. Data Usage Control Technologies aim to enforce usage restrictions and obligations once data access is granted.</p>
+      <p><a target="_blank" href="https://www.mydata-control.de/">MYDATA Control Technologies</a> is developed at <a target="_blank" href="https://www.iese.fraunhofer.de/en/services/security/datenschutz/my-data-control-technologies.html">Fraunhofer IESE</a> as a technical implementation for Data Usage Control. It offers both businesses and private individuals more transparency and self-determination in the use of their data by intercepting events or data flows and enforcing a security decision based on policies. MYDATA Control Technologies can interpret and enforce its own XML-based policy language.</p>
+      <p>To support users in specifying their policies in the ODRL policy language and translating it into technology-dependent policy languages, a Policy Administration Point and a Policy Transformation Service have been implemented and are available <a target="_blank" href="https://odrl-pap.mydata-control.de/">here</a>.</p>
+      <div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="3"><span>Note</span><!---0.921186%--></div><aside class="" title="">
+        <p>Through our engagement in IDSA activities, we've developed a draft profile that aligns with the IDS Information Model 4.0, accessible <a target="_blank" href="https://docs.internationaldataspaces.org/ids-knowledgebase/v/odrl-profile-for-ids">here</a>. This effort has resulted in the creation of the ODRL Profile for Data Sovereignty.</p>
+      </aside></div>
+    </section>
+    <section id="ods-vocabulary"><!--OddPage--><div class="header-wrapper"><h2 id="x2-ods-vocabulary"><bdi class="secno">2.<!---0.921186%--> </bdi>ods Vocabulary</h2><a class="self-link" href="#ods-vocabulary" aria-label="Permalink for Section 2."></a></div>
+      
+      <section id="data-usage-control-concepts"><div class="header-wrapper"><h3 id="x2-1-data-usage-control-concepts"><bdi class="secno">2.1<!---0.921186%--> </bdi>Data Usage Control Concepts</h3><a class="self-link" href="#data-usage-control-concepts" aria-label="Permalink for Section 2.1"></a></div>
+        
+        <p>Data Usage Control can be defined as an extension of attribute-based Access Control. At <a target="_blank" href="https://www.iese.fraunhofer.de/en/services/security/datenschutz/my-data-control-technologies.html">Fraunhofer IESE</a>, an architecture for Data Usage Control is introduced that extends the <a target="_blank" href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html">XACML architecture</a> for enfocing usage control policies. According to this architecture, a Policy Information Point (PIP) can provide any required information from defined sources. Moreover, Policy Execution Point (PXP) is added to the architecture. PXP can be used to specify and execute an action of a duty in order to fulfill an obligation.</p>
+        <section id="term-usage-control-component"><div class="header-wrapper"><h4 id="x2-1-1-usage-control-component"><bdi class="secno">2.1.1<!---0.921186%--> </bdi>Usage Control Component</h4><a class="self-link" href="#term-usage-control-component" aria-label="Permalink for Section 2.1.1"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>A data usage control component</td></tr>
+          <tr><th>Label:</th><td>Usage Control Component</td></tr>
+          <tr><th>Identifier:</th><td><a href="https://www.w3.org/ods/UsageControlComponent">https://www.w3.org/ods/UsageControlComponent</a></td></tr>
+          <tr><th>Note:</th><td>It is optional to explicitly specify a data usage control component that is responsible for providing context information or executing a duty action.</td></tr>
+          <tr><th>Properties:</th> <td><a href="#term-interface-description">Interface Description</a>, <a href="#term-endpoint-uri">Endpoint URI</a></td></tr>
+          <tr><th>Instances:</th> <td><a href="#term-pip">Policy Information Point</a>, <a href="#term-pxp">Policy Execution Point</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-usage-control-component-left-operand"><div class="header-wrapper"><h4 id="x2-1-2-has-usage-control-component"><bdi class="secno">2.1.2<!---0.921186%--> </bdi>has Usage Control Component</h4><a class="self-link" href="#term-usage-control-component-left-operand" aria-label="Permalink for Section 2.1.2"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>It refers to a data usage control component.</td></tr>
+          <tr><th>Label:</th><td>has Usage Control Component</td></tr>
+          <tr><th>Identifier:</th><td><a href="https://www.w3.org/ods/usageControlComponent">https://www.w3.org/ods/usageControlComponent </a></td></tr>
+          <tr><th>Domain:</th> <td><a href="#term-usage-control-component">Usage Control Component</a></td></tr>
+          <tr><th>Range:</th> <td><a href="#term-usage-control-component">Usage Control Component</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-interface-description"><div class="header-wrapper"><h4 id="x2-1-3-interface-description"><bdi class="secno">2.1.3<!---0.921186%--> </bdi>Interface Description</h4><a class="self-link" href="#term-interface-description" aria-label="Permalink for Section 2.1.3"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>The reference to a URI that provides the interface description of a usage control endpoint.</td></tr>
+          <tr><th>Label:</th><td>Interface Description</td></tr>
+          <tr><th>Identifier:</th><td><a href="https://www.w3.org/ods/interfaceDescription">https://www.w3.org/ods/interfaceDescription</a></td></tr>
+          <tr><th>Domain:</th> <td><a href="#term-usage-control-component">Usage Control Component</a></td></tr>
+          <tr><th>Range:</th> <td><a href="#term-usage-control-component">Usage Control Component</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-endpoint-uri"><div class="header-wrapper"><h4 id="x2-1-4-endpoint-uri"><bdi class="secno">2.1.4<!---0.921186%--> </bdi>Endpoint URI</h4><a class="self-link" href="#term-endpoint-uri" aria-label="Permalink for Section 2.1.4"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>The reference to a URI that expresses an exact endpoint of that usage control endpoint.</td></tr>
+          <tr><th>Label:</th><td>Endpoint URI</td></tr>
+          <tr><th>Identifier:</th><td><a href="https://www.w3.org/ods/endpointURI">https://www.w3.org/ods/endpointURI</a></td></tr>
+          <tr><th>Domain:</th> <td><a href="#term-usage-control-component">Usage Control Component</a></td></tr>
+          <tr><th>Range:</th> <td><a href="#term-usage-control-component">Usage Control Component</a></td></tr>
+          </tbody></table>
+        </section>
+      </section>
+      <section id="constraint-operators"><div class="header-wrapper"><h3 id="x2-2-constraint-operators"><bdi class="secno">2.2<!---0.921186%--> </bdi>Constraint Operators</h3><a class="self-link" href="#constraint-operators" aria-label="Permalink for Section 2.2"></a></div>
+        
+        <section id="term-in"><div class="header-wrapper"><h4 id="x2-2-1-in"><bdi class="secno">2.2.1<!---0.921186%--> </bdi>In</h4><a class="self-link" href="#term-in" aria-label="Permalink for Section 2.2.1"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>This operator is used to express the membership of an individual element in a set.</td></tr>
+          <tr><th>Label:</th><td>In</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/in">https://www.w3.org/ods/in</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Operator">odrl:Operator</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-subset"><div class="header-wrapper"><h4 id="x2-2-2-subset"><bdi class="secno">2.2.2<!---0.921186%--> </bdi>Subset</h4><a class="self-link" href="#term-subset" aria-label="Permalink for Section 2.2.2"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>This operator is used to indicate that one set is entirely contained within another set.</td></tr>
+          <tr><th>Label:</th><td>Subset</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/subset">https://www.w3.org/ods/subset</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Operator">odrl:Operator</a></td></tr>
+          </tbody></table>
+        </section>
+      </section>
+      <section id="actions-for-rules"><div class="header-wrapper"><h3 id="x2-3-actions-for-rules"><bdi class="secno">2.3<!---0.921186%--> </bdi>Actions for Rules</h3><a class="self-link" href="#actions-for-rules" aria-label="Permalink for Section 2.3"></a></div>
+        
+        <section id="term-add"><div class="header-wrapper"><h4 id="x2-3-1-add"><bdi class="secno">2.3.1<!---0.921186%--> </bdi>Add</h4><a class="self-link" href="#term-add" aria-label="Permalink for Section 2.3.1"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>To modify a number by adding a given value to it.</td></tr>
+          <tr><th>Label:</th><td>Add</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/add">https://www.w3.org/ods/add</a></td></tr>
+          <tr><th>Note:</th><td>The field to be modified can be specified using ods:json_path or ods:xpath and the given value can be specified using ods:operand.</td></tr>
+          <tr><th>Included In:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-use">odrl:use</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">odrl:Action</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-divide"><div class="header-wrapper"><h4 id="x2-3-2-divide"><bdi class="secno">2.3.2<!---0.921186%--> </bdi>Divide</h4><a class="self-link" href="#term-divide" aria-label="Permalink for Section 2.3.2"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>To modify a number by dividing it by a given value.</td></tr>
+          <tr><th>Label:</th><td>Divide</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/divide">https://www.w3.org/ods/divide</a></td></tr>
+          <tr><th>Note:</th><td>The field to be modified can be specified using ods:json_path or ods:xpath and the given value can be specified using ods:operand.</td></tr>
+          <tr><th>Included In:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-use">odrl:use</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">odrl:Action</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-encrypt"><div class="header-wrapper"><h4 id="x2-3-3-encrypt"><bdi class="secno">2.3.3<!---0.921186%--> </bdi>Encrypt</h4><a class="self-link" href="#term-encrypt" aria-label="Permalink for Section 2.3.3"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>To encrpyt a data artifact or parts of it to secure it during transmission and to prevent unauthorized access. The encryption algorithm might be specified by a constraint.</td></tr>
+          <tr><th>Label:</th><td>Encrypt</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/encrypt">https://www.w3.org/ods/encrypt</a></td></tr>
+          <tr><th>Note:</th><td>The encryption algorithm can be specified using ods:encryption_algorithm (eg. AES).</td></tr>
+          <tr><th>Included In:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-use">odrl:use</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">odrl:Action</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-hash"><div class="header-wrapper"><h4 id="x2-3-4-hash"><bdi class="secno">2.3.4<!---0.921186%--> </bdi>Hash</h4><a class="self-link" href="#term-hash" aria-label="Permalink for Section 2.3.4"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>To modify a value by replacing it with a hash of the value.</td></tr>
+          <tr><th>Label:</th><td>Hash</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/hash">https://www.w3.org/ods/hash</a></td></tr>
+          <tr><th>Note:</th><td>The field to be modified can be specified using ods:json_path or ods:xpath and the hash algorithm can be specified using ods:hash_algorithm (eg. SHA256).</td></tr>
+          <tr><th>Included In:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-use">odrl:use</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">odrl:Action</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-log"><div class="header-wrapper"><h4 id="x2-3-5-log"><bdi class="secno">2.3.5<!---0.921186%--> </bdi>Log</h4><a class="self-link" href="#term-log" aria-label="Permalink for Section 2.3.5"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>To log information about data usage. It is used to create transparency.</td></tr>
+          <tr><th>Label:</th><td>Log</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/log">https://www.w3.org/ods/log</a></td></tr>
+          <tr><th>Note:</th><td>The log level can be specified using ods:log_level left operand.</td></tr>
+          <tr><th>Included In:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-use">odrl:use</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">odrl:Action</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-multiply"><div class="header-wrapper"><h4 id="x2-3-6-multiply"><bdi class="secno">2.3.6<!---0.921186%--> </bdi>Multiply</h4><a class="self-link" href="#term-multiply" aria-label="Permalink for Section 2.3.6"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>To modify a number by multiplying it to a given value.</td></tr>
+          <tr><th>Label:</th><td>Multiply</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/multiply">https://www.w3.org/ods/multiply</a></td></tr>
+          <tr><th>Note:</th><td>The field to be modified can be specified using ods:json_path or ods:xpath and the given value can be specified using ods:operand.</td></tr>
+          <tr><th>Included In:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-use">odrl:use</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">odrl:Action</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-multiply"><div class="header-wrapper"><h4 id="x2-3-7-multiparty-computation"><bdi class="secno">2.3.7<!---0.921186%--> </bdi>Multiparty Computation</h4><a class="self-link" href="#term-multiply" aria-label="Permalink for Section 2.3.7"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>Secure Multiparty Computation (MPC) is a cryptographic protocol that enables a defined set of parties, each party owning a secret value, to compute a function collaboratively while preserving the privacy of their individual inputs.</td></tr>
+          <tr><th>Label:</th><td>Multiparty Computation</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/mpc">https://www.w3.org/ods/mpc</a></td></tr>
+          <tr><th>Included In:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-use">odrl:use</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">odrl:Action</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-notify"><div class="header-wrapper"><h4 id="x2-3-8-notify"><bdi class="secno">2.3.8<!---0.921186%--> </bdi>Notify</h4><a class="self-link" href="#term-notify" aria-label="Permalink for Section 2.3.8"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>To notify a party with information about data usage.</td></tr>
+          <tr><th>Label:</th><td>Notify</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/notify">https://www.w3.org/ods/notify</a></td></tr>
+          <tr><th>Note:</th><td>The notification level can be specified using ods:notification_level left operand.</td></tr>
+          <tr><th>Included In:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-use">odrl:use</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">odrl:Action</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-query"><div class="header-wrapper"><h4 id="x2-3-9-query"><bdi class="secno">2.3.9<!---0.921186%--> </bdi>Query</h4><a class="self-link" href="#term-query" aria-label="Permalink for Section 2.3.9"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>To request for a piece of information or data from an information system or a database.</td></tr>
+          <tr><th>Label:</th><td>Query</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/query">https://www.w3.org/ods/query</a></td></tr>
+          <tr><th>Included In:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-use">odrl:use</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">odrl:Action</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-replace"><div class="header-wrapper"><h4 id="x2-3-10-replace"><bdi class="secno">2.3.10<!---0.921186%--> </bdi>Replace</h4><a class="self-link" href="#term-replace" aria-label="Permalink for Section 2.3.10"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>To replace a field by a given value.</td></tr>
+          <tr><th>Label:</th><td>Replace</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/replace">https://www.w3.org/ods/replace</a></td></tr>
+          <tr><th>Note:</th><td>The field to be modified can be specified using ods:json_path or ods:xpath and the given value can be specified using ods:replace_with.</td></tr>
+          <tr><th>Included In:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-use">odrl:use</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">odrl:Action</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-shuffle"><div class="header-wrapper"><h4 id="x2-3-11-shuffle"><bdi class="secno">2.3.11<!---0.921186%--> </bdi>Shuffle</h4><a class="self-link" href="#term-shuffle" aria-label="Permalink for Section 2.3.11"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>To replace a field with an anagram of it's value.</td></tr>
+          <tr><th>Label:</th><td>Shuffle</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/shuffle">https://www.w3.org/ods/shuffle</a></td></tr>
+          <tr><th>Note:</th><td>The field to be modified can be specified using ods:json_path or ods:xpath.</td></tr>
+          <tr><th>Included In:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-use">odrl:use</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">odrl:Action</a></td></tr>
+          </tbody></table>
+        </section>
+      </section>
+      <section id="usage-control-components"><div class="header-wrapper"><h3 id="x2-4-usage-control-components"><bdi class="secno">2.4<!---0.921186%--> </bdi>Usage Control Components</h3><a class="self-link" href="#usage-control-components" aria-label="Permalink for Section 2.4"></a></div>
+        
+        <section id="term-pip"><div class="header-wrapper"><h4 id="x2-4-1-policy-information-point"><bdi class="secno">2.4.1<!---0.921186%--> </bdi>Policy Information Point</h4><a class="self-link" href="#term-pip" aria-label="Permalink for Section 2.4.1"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>Refers to the PIP that provides a specific piece of information (URI/reference to an associated PIP interface).</td></tr>
+          <tr><th>Label:</th><td>Policy Information Point</td></tr>
+          <tr><th>Identifier:</th><td><a href="https://www.w3.org/ods/PIP">https://www.w3.org/ods/PIP</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-usage-control-component">ods:UsageControlComponent</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-pxp"><div class="header-wrapper"><h4 id="x2-4-2-policy-execution-point"><bdi class="secno">2.4.2<!---0.921186%--> </bdi>Policy Execution Point</h4><a class="self-link" href="#term-pxp" aria-label="Permalink for Section 2.4.2"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>The reference to the PXP that operates a specific action, URI or reference to an associated PXP interface.</td></tr>
+          <tr><th>Label:</th><td>Policy Execution Point</td></tr>
+          <tr><th>Identifier:</th><td><a href="https://www.w3.org/ods/PXP">https://www.w3.org/ods/PXP</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-usage-control-component">ods:UsageControlComponent</a></td></tr>
+          </tbody></table>
+        </section>
+      </section>
+      <section id="constraint-left-operands"><div class="header-wrapper"><h3 id="x2-5-constraint-left-operands"><bdi class="secno">2.5<!---0.921186%--> </bdi>Constraint Left Operands</h3><a class="self-link" href="#constraint-left-operands" aria-label="Permalink for Section 2.5"></a></div>
+        
+        <section id="term-application"><div class="header-wrapper"><h4 id="x2-5-1-application"><bdi class="secno">2.5.1<!---0.921186%--> </bdi>Application</h4><a class="self-link" href="#term-application" aria-label="Permalink for Section 2.5.1"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>An application is a program or piece of software designed to fulfill a particular purpose.</td></tr>
+          <tr><th>Label:</th><td>Application</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/application">https://www.w3.org/ods/application</a></td></tr>
+          <!-- <tr><th>Note:</th><td>note here</td></tr> -->
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-artifact-state"><div class="header-wrapper"><h4 id="x2-5-2-artifact-state"><bdi class="secno">2.5.2<!---0.921186%--> </bdi>Artifact State</h4><a class="self-link" href="#term-artifact-state" aria-label="Permalink for Section 2.5.2"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>It refers to the status of a data asset.</td></tr>
+          <tr><th>Label:</th><td>Artifact State</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/artifact_state">https://www.w3.org/ods/artifact_state</a></td></tr>
+          <tr><th>Note:</th><td>This operand accepts the following values: ods:anonymized, ods:combined, ods:encrypted, ods:pseudonymized.</td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-endpoint"><div class="header-wrapper"><h4 id="x2-5-3-endpoint"><bdi class="secno">2.5.3<!---0.921186%--> </bdi>Endpoint</h4><a class="self-link" href="#term-endpoint" aria-label="Permalink for Section 2.5.3"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>An endpoint refers to a specific address or connection point.</td></tr>
+          <tr><th>Label:</th><td>Endpoint</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/endpoint">https://www.w3.org/ods/endpoint</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-function"><div class="header-wrapper"><h4 id="x2-5-4-function"><bdi class="secno">2.5.4<!---0.921186%--> </bdi>Function</h4><a class="self-link" href="#term-function" aria-label="Permalink for Section 2.5.4"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>A function encapsulates a reusable logic.</td></tr>
+          <tr><th>Label:</th><td>Function</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/function">https://www.w3.org/ods/function</a></td></tr>
+          <tr><th>Note:</th><td>In mathematical contexts, examples include ods:maximum, ods:minimum, and ods:sum.</td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-hash-algorithm"><div class="header-wrapper"><h4 id="x2-5-5-hash-algorithm"><bdi class="secno">2.5.5<!---0.921186%--> </bdi>Hash Algorithm</h4><a class="self-link" href="#term-hash-algorithm" aria-label="Permalink for Section 2.5.5"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>It indicates the hash value to be used.</td></tr>
+          <tr><th>Label:</th><td>Hash Algorithm</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/hash_algorithm">https://www.w3.org/ods/hash_algorithm</a></td></tr>
+          <tr><th>Note:</th><td>For example, SHA256.</td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-encryption-algorithm"><div class="header-wrapper"><h4 id="x2-5-6-encryption-algorithm"><bdi class="secno">2.5.6<!---0.921186%--> </bdi>Encryption Algorithm</h4><a class="self-link" href="#term-encryption-algorithm" aria-label="Permalink for Section 2.5.6"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>It indicates the encryption algorithm to be used.</td></tr>
+          <tr><th>Label:</th><td>Encryption Algorithm</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/encryption-algorithm">https://www.w3.org/ods/encryption-algorithm</a></td></tr>
+          <tr><th>Note:</th><td>For example, AES.</td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-json-path"><div class="header-wrapper"><h4 id="x2-5-7-jsonpath"><bdi class="secno">2.5.7<!---0.921186%--> </bdi>JSONPath</h4><a class="self-link" href="#term-json-path" aria-label="Permalink for Section 2.5.7"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>An expression that refers to a part of a JSON structured data.</td></tr>
+          <tr><th>Label:</th><td>JSONPath</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/json_path">https://www.w3.org/ods/json_path</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-json-string-path"><div class="header-wrapper"><h4 id="x2-5-8-json-string-path"><bdi class="secno">2.5.8<!---0.921186%--> </bdi>JSON String Path</h4><a class="self-link" href="#term-json-string-path" aria-label="Permalink for Section 2.5.8"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>An expression that refers to a part of a JSON structured data.</td></tr>
+          <tr><th>Label:</th><td>JSON String Path</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/json_string_path">https://www.w3.org/ods/json_string_path</a></td></tr>
+          <tr><th>Note:</th><td>It is used by <a target="_blank" href="https://www.openpolicyagent.org/docs/latest/policy-language/">Rego</a> policy language.</td></tr>
+          <tr><th>Class:</th><td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-log-level"><div class="header-wrapper"><h4 id="x2-5-9-log-level"><bdi class="secno">2.5.9<!---0.921186%--> </bdi>Log Level</h4><a class="self-link" href="#term-log-level" aria-label="Permalink for Section 2.5.9"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>It refers to the log level.</td></tr>
+          <tr><th>Label:</th><td>Log Level</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/log_level">https://www.w3.org/ods/log_level</a></td></tr>
+          <tr><th>Note:</th><td>This operand accepts the following values: ods:on_action_operated, ods:on_allow, ods:on_deny, ods:on_duty_exercised.</td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-notification-level"><div class="header-wrapper"><h4 id="x2-5-10-notification-level"><bdi class="secno">2.5.10<!---0.921186%--> </bdi>Notification Level</h4><a class="self-link" href="#term-notification-level" aria-label="Permalink for Section 2.5.10"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>It refers to the notification level.</td></tr>
+          <tr><th>Label:</th><td>Notification Level</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/notification_level">https://www.w3.org/ods/notification_level</a></td></tr>
+          <tr><th>Note:</th><td>This operand accepts the following values: ods:on_action_operated, ods:on_allow, ods:on_deny, ods:on_duty_exercised.</td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-operand"><div class="header-wrapper"><h4 id="x2-5-11-operand"><bdi class="secno">2.5.11<!---0.921186%--> </bdi>Operand</h4><a class="self-link" href="#term-operand" aria-label="Permalink for Section 2.5.11"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>An operand is a required element within an arithmetic or logical operation.</td></tr>
+          <tr><th>Label:</th><td>Operand</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/operand">https://www.w3.org/ods/operand</a></td></tr>
+          <tr><th>Note:</th><td>Operands can be numeric values or expressions.</td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-path"><div class="header-wrapper"><h4 id="x2-5-12-path"><bdi class="secno">2.5.12<!---0.921186%--> </bdi>Path</h4><a class="self-link" href="#term-path" aria-label="Permalink for Section 2.5.12"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>An expression that refers to a file within a system, or an element within a hierarchical structure.</td></tr>
+          <tr><th>Label:</th><td>Path</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/path">https://www.w3.org/ods/path</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-replace-with"><div class="header-wrapper"><h4 id="x2-5-13-replace-with"><bdi class="secno">2.5.13<!---0.921186%--> </bdi>Replace With</h4><a class="self-link" href="#term-replace-with" aria-label="Permalink for Section 2.5.13"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>It specifies a new value for a specific field.</td></tr>
+          <tr><th>Label:</th><td>Replace With</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/replace_with">https://www.w3.org/ods/replace_with</a></td></tr>
+          <tr><th>Note:</th><td>It gives a value for ods:replace action.</td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-role"><div class="header-wrapper"><h4 id="x2-5-14-role"><bdi class="secno">2.5.14<!---0.921186%--> </bdi>Role</h4><a class="self-link" href="#term-role" aria-label="Permalink for Section 2.5.14"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>Role refers to an end user's role.</td></tr>
+          <tr><th>Label:</th><td>Role</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/role">https://www.w3.org/ods/role</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-state"><div class="header-wrapper"><h4 id="x2-5-15-state"><bdi class="secno">2.5.15<!---0.921186%--> </bdi>State</h4><a class="self-link" href="#term-state" aria-label="Permalink for Section 2.5.15"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>It refers to an environment state.</td></tr>
+          <tr><th>Label:</th><td>State</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/state">https://www.w3.org/ods/state</a></td></tr>
+          <tr><th>Note:</th><td>Not be confused with artifact state.</td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-user"><div class="header-wrapper"><h4 id="x2-5-16-user"><bdi class="secno">2.5.16<!---0.921186%--> </bdi>User</h4><a class="self-link" href="#term-user" aria-label="Permalink for Section 2.5.16"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>It refers to a particular end user.</td></tr>
+          <tr><th>Label:</th><td>User</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/user">https://www.w3.org/ods/user</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-xpath"><div class="header-wrapper"><h4 id="x2-5-17-xpath"><bdi class="secno">2.5.17<!---0.921186%--> </bdi>XPath</h4><a class="self-link" href="#term-xpath" aria-label="Permalink for Section 2.5.17"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>An expression that refers to specific elements of an XML document.</td></tr>
+          <tr><th>Label:</th><td>XPath</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/xpath">https://www.w3.org/ods/xpath</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
+          </tbody></table>
+        </section>
+      </section>
+      <section id="constraint-right-operands"><div class="header-wrapper"><h3 id="x2-6-constraint-right-operands"><bdi class="secno">2.6<!---0.921186%--> </bdi>Constraint Right Operands</h3><a class="self-link" href="#constraint-right-operands" aria-label="Permalink for Section 2.6"></a></div>
+        
+        <section id="term-anonymized"><div class="header-wrapper"><h4 id="x2-6-1-anonymized"><bdi class="secno">2.6.1<!---0.921186%--> </bdi>Anonymized</h4><a class="self-link" href="#term-anonymized" aria-label="Permalink for Section 2.6.1"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>Indicates that the asset is anonymized.</td></tr>
+          <tr><th>Label:</th><td>Anonymized</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/anonymized">https://www.w3.org/ods/anonymized</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-RightOperand">odrl:RightOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-combined"><div class="header-wrapper"><h4 id="x2-6-2-combined"><bdi class="secno">2.6.2<!---0.921186%--> </bdi>Combined</h4><a class="self-link" href="#term-combined" aria-label="Permalink for Section 2.6.2"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>Indicates that the asset is combined.</td></tr>
+          <tr><th>Label:</th><td>Combined</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/combined">https://www.w3.org/ods/combined</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-RightOperand">odrl:RightOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-encrypted"><div class="header-wrapper"><h4 id="x2-6-3-encrypted"><bdi class="secno">2.6.3<!---0.921186%--> </bdi>Encrypted</h4><a class="self-link" href="#term-encrypted" aria-label="Permalink for Section 2.6.3"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>Indicates that the asset is encrypted.</td></tr>
+          <tr><th>Label:</th><td>Encrypted</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/encrypted">https://www.w3.org/ods/encrypted</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-RightOperand">odrl:RightOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-maximum"><div class="header-wrapper"><h4 id="x2-6-4-maximum"><bdi class="secno">2.6.4<!---0.921186%--> </bdi>Maximum</h4><a class="self-link" href="#term-maximum" aria-label="Permalink for Section 2.6.4"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>The maximum function to determine the largest value among a set of numbers.</td></tr>
+          <tr><th>Label:</th><td>Maximum</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/maximum">https://www.w3.org/ods/maximum</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-RightOperand">odrl:RightOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-minimum"><div class="header-wrapper"><h4 id="x2-6-5-minimum"><bdi class="secno">2.6.5<!---0.921186%--> </bdi>Minimum</h4><a class="self-link" href="#term-minimum" aria-label="Permalink for Section 2.6.5"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>The minimum function to determine the smallest value among a set of numbers.</td></tr>
+          <tr><th>Label:</th><td>Minimum</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/minimum">https://www.w3.org/ods/minimum</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-RightOperand">odrl:RightOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-on-action-operated"><div class="header-wrapper"><h4 id="x2-6-6-on-action-operated"><bdi class="secno">2.6.6<!---0.921186%--> </bdi>On action operated</h4><a class="self-link" href="#term-on-action-operated" aria-label="Permalink for Section 2.6.6"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>Log usage information or notify a party when the action of the rule is operated.</td></tr>
+          <tr><th>Label:</th><td>On action operated</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/on_action_operated">https://www.w3.org/ods/on_action_operated</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-RightOperand">odrl:RightOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-on-allow"><div class="header-wrapper"><h4 id="x2-6-7-on-allow"><bdi class="secno">2.6.7<!---0.921186%--> </bdi>On allow</h4><a class="self-link" href="#term-on-allow" aria-label="Permalink for Section 2.6.7"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>Log usage information or notify a party when performing the action of the rule is permitted.</td></tr>
+          <tr><th>Label:</th><td>On allow</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/on_allow">https://www.w3.org/ods/on_allow</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-RightOperand">odrl:RightOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-on-deny"><div class="header-wrapper"><h4 id="x2-6-8-on-deny"><bdi class="secno">2.6.8<!---0.921186%--> </bdi>On deny</h4><a class="self-link" href="#term-on-deny" aria-label="Permalink for Section 2.6.8"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>Log usage information or notify a party when performing the action of the rule is prohibited.</td></tr>
+          <tr><th>Label:</th><td>On deny</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/on_deny">https://www.w3.org/ods/on_deny</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-RightOperand">odrl:RightOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-on-duty-exercised"><div class="header-wrapper"><h4 id="x2-6-9-on-duty-exercised"><bdi class="secno">2.6.9<!---0.921186%--> </bdi>On duty exercised</h4><a class="self-link" href="#term-on-duty-exercised" aria-label="Permalink for Section 2.6.9"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>Log usage information or notify a party when the action of the duty is executed.</td></tr>
+          <tr><th>Label:</th><td>On duty exercised</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/on_duty_exercised">https://www.w3.org/ods/on_duty_exercised</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-RightOperand">odrl:RightOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-pseudonymized"><div class="header-wrapper"><h4 id="x2-6-10-pseudonymized"><bdi class="secno">2.6.10<!---0.921186%--> </bdi>Pseudonymized</h4><a class="self-link" href="#term-pseudonymized" aria-label="Permalink for Section 2.6.10"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>Indicates that the asset is pseudonymized.</td></tr>
+          <tr><th>Label:</th><td>Pseudonymized</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/pseudonymized">https://www.w3.org/ods/pseudonymized</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-RightOperand">odrl:RightOperand</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-sum"><div class="header-wrapper"><h4 id="x2-6-11-sum"><bdi class="secno">2.6.11<!---0.921186%--> </bdi>Sum</h4><a class="self-link" href="#term-sum" aria-label="Permalink for Section 2.6.11"></a></div><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>The sum function to determine  the total sum of a set of numbers.</td></tr>
+          <tr><th>Label:</th><td>Sum</td></tr>
+          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/sum">https://www.w3.org/ods/sum</a></td></tr>
+          <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-RightOperand">odrl:RightOperand</a></td></tr>
+          </tbody></table>
+        </section>
+      </section>
+    </section>
+    
+    <section id="examples"><!--OddPage--><div class="header-wrapper"><h2 id="x3-examples"><bdi class="secno">3.<!---0.921186%--> </bdi>Examples</h2><a class="self-link" href="#examples" aria-label="Permalink for Section 3."></a></div>
+      
+      <section id="modify-data"><div class="header-wrapper"><h3 id="x3-1-modify-data"><bdi class="secno">3.1<!---0.921186%--> </bdi>Modify data</h3><a class="self-link" href="#modify-data" aria-label="Permalink for Section 3.1"></a></div>
+        
+        <aside class="example" id="example-1"><div class="marker">
+    <a class="self-link" href="#example-1">Example<!---0.921186%--><bdi> 1<!---0.921186%--></bdi></a><!---0.921186%-->
+  </div>
+          <p>This policy demands to modify the data before it is used.</p>
+          <pre><code class="json hljs" aria-busy="false">
+            {
+              <span class="hljs-attr">"@context"</span>: [
+                  <span class="hljs-string">"http://www.w3.org/ns/odrl.jsonld"</span>,
+                  { <span class="hljs-attr">"dc"</span>: <span class="hljs-string">"http://purl.org/dc/terms/"</span>},
+                  { <span class="hljs-attr">"ods"</span>: <span class="hljs-string">"https://www.w3.org/ods"</span>}
+              ],
+              <span class="hljs-attr">"@type"</span>: <span class="hljs-string">"Offer"</span>,
+              <span class="hljs-attr">"uid"</span>: <span class="hljs-string">"http://example.com/policy/replace-value"</span>,
+              <span class="hljs-attr">"profile"</span>: <span class="hljs-string">"https://www.w3.org/ods"</span>,
+              <span class="hljs-attr">"dc:issued"</span>: <span class="hljs-string">"2024-05-15T12:00"</span>,
+              <span class="hljs-attr">"permission"</span>: [{
+                  <span class="hljs-attr">"target"</span>: <span class="hljs-string">"http://example.com/data/789"</span>,
+                  <span class="hljs-attr">"assigner"</span>: <span class="hljs-string">"http://example.com/party/123"</span>,
+                  <span class="hljs-attr">"action"</span>: <span class="hljs-string">"use"</span>,
+                  <span class="hljs-attr">"duty"</span>: [{
+                     <span class="hljs-attr">"action"</span>: [{
+                        <span class="hljs-attr">"rdf:value"</span>: { <span class="hljs-attr">"@id"</span>: <span class="hljs-string">"ods:replace"</span> },
+                        <span class="hljs-attr">"refinement"</span>: [{
+                           <span class="hljs-attr">"leftOperand"</span>: <span class="hljs-string">"ods:replace_with"</span>,
+                           <span class="hljs-attr">"operator"</span>: <span class="hljs-string">"eq"</span>,
+                           <span class="hljs-attr">"rightOperand"</span>: { <span class="hljs-attr">"@value"</span>: <span class="hljs-string">"xxxx"</span>, <span class="hljs-attr">"@type"</span>: <span class="hljs-string">"xsd:string"</span> }
+                        },{
+                           <span class="hljs-attr">"leftOperand"</span>: <span class="hljs-string">"ods:json_path"</span>,
+                           <span class="hljs-attr">"operator"</span>: <span class="hljs-string">"eq"</span>,
+                           <span class="hljs-attr">"rightOperand"</span>: { <span class="hljs-attr">"@value"</span>: <span class="hljs-string">"$.name"</span>, <span class="hljs-attr">"@type"</span>: <span class="hljs-string">"xsd:string"</span> }
+                        }]
+                     }],
+                     <span class="hljs-attr">"constraint"</span>: [{
+                         <span class="hljs-attr">"leftOperand"</span>: <span class="hljs-string">"event"</span>,
+                         <span class="hljs-attr">"operator"</span>: <span class="hljs-string">"lt"</span>,
+                         <span class="hljs-attr">"rightOperand"</span>: { <span class="hljs-attr">"@id"</span>: <span class="hljs-string">"odrl:policyUsage"</span> }
+                     }]
+                  }]
+              }]
+          }
+          </code></pre>
+        </aside>
+      </section>
+      <section id="notify-data-provider"><div class="header-wrapper"><h3 id="x3-2-notify-data-provider"><bdi class="secno">3.2<!---0.921186%--> </bdi>Notify data provider</h3><a class="self-link" href="#notify-data-provider" aria-label="Permalink for Section 3.2"></a></div>
+        
+        <aside class="example" id="example-2"><div class="marker">
+    <a class="self-link" href="#example-2">Example<!---0.921186%--><bdi> 2<!---0.921186%--></bdi></a><!---0.921186%-->
+  </div>
+          <p>This policy demands to notify the data provider when the data is used.</p>
+          <pre aria-busy="false"><code class="hljs json">  {
+    <span class="hljs-attr">"@context"</span>: [
+        <span class="hljs-string">"http://www.w3.org/ns/odrl.jsonld"</span>,
+        { <span class="hljs-attr">"dc"</span>: <span class="hljs-string">"http://purl.org/dc/terms/"</span>},
+        { <span class="hljs-attr">"ods"</span>: <span class="hljs-string">"https://www.w3.org/ods"</span>}
+    ],
+    <span class="hljs-attr">"@type"</span>: <span class="hljs-string">"Offer"</span>,
+    <span class="hljs-attr">"uid"</span>: <span class="hljs-string">"http://example.com/policy/notify_party/42"</span>,
+    <span class="hljs-attr">"profile"</span>: <span class="hljs-string">"https://www.w3.org/ods"</span>,
+    <span class="hljs-attr">"dc:issued"</span>: <span class="hljs-string">"2024-05-15T12:00"</span>,
+    <span class="hljs-attr">"permission"</span>: [{
+        <span class="hljs-attr">"target"</span>: <span class="hljs-string">"http://example.com/data/789"</span>,
+        <span class="hljs-attr">"assigner"</span>: <span class="hljs-string">"http://example.com/party/123"</span>,
+        <span class="hljs-attr">"action"</span>: <span class="hljs-string">"use"</span>,
+        <span class="hljs-attr">"duty"</span>: [{
+           <span class="hljs-attr">"action"</span>: [{
+              <span class="hljs-attr">"rdf:value"</span>: { <span class="hljs-attr">"@id"</span>: <span class="hljs-string">"ods:notify"</span> },
+              <span class="hljs-attr">"refinement"</span>: [{
+                 <span class="hljs-attr">"leftOperand"</span>: <span class="hljs-string">"recipient"</span>,
+                 <span class="hljs-attr">"operator"</span>: <span class="hljs-string">"eq"</span>,
+                 <span class="hljs-attr">"rightOperand"</span>: { <span class="hljs-attr">"@value"</span>: <span class="hljs-string">"http://example.com/party/123"</span>, <span class="hljs-attr">"@type"</span>: <span class="hljs-string">"xsd:anyURI"</span> }
+              },{
+                 <span class="hljs-attr">"leftOperand"</span>: <span class="hljs-string">"ods:notification_level"</span>,
+                 <span class="hljs-attr">"operator"</span>: <span class="hljs-string">"eq"</span>,
+                 <span class="hljs-attr">"rightOperand"</span>: { <span class="hljs-attr">"@value"</span>: <span class="hljs-string">"ods:on_allow"</span>, <span class="hljs-attr">"@type"</span>: <span class="hljs-string">"xsd:string"</span> }
+              }]
+           }]
+        }]
+    }]
+}</code></pre>
+        </aside>
+      </section>
+    </section>
+
+    <section id="conformance"><!--OddPage--><div class="header-wrapper"><h2 id="x4-conformance"><bdi class="secno">4.<!---0.921186%--> </bdi>Conformance<!---0.921186%--></h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 4."></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.<!---0.921186%--></p><!---0.921186%-->
+      <p>
+        This is required for specifications that contain normative material.
+      </p>
+      <section id="namespaces"><div class="header-wrapper"><h3 id="x4-1-namespaces"><bdi class="secno">4.1<!---0.921186%--> </bdi>Namespaces</h3><a class="self-link" href="#namespaces" aria-label="Permalink for Section 4.1"></a></div>
+        
+        <p>The ODRL Vocabulary references the following Namespaces:</p>
+        <table class="def">
+          <tbody>
+            <tr>
+              <th>Prefix</th>
+              <th>Namespace</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>odrl</td>
+              <td>http://www.w3.org/ns/odrl/2/</td>
+              <td>ODRL Vocabulary</td>
+            </tr>
+            <tr>
+              <td>rdf</td>
+              <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td>
+              <td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-rdf11-concepts" title="RDF 1.1 Concepts and Abstract Syntax">rdf11-concepts<!---0.921186%--></a></cite><!---0.921186%-->]</td>
+            </tr>
+            <tr>
+              <td>rdfs</td>
+              <td>http://www.w3.org/2000/01/rdf-schema#</td>
+              <td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-rdf-schema" title="RDF Schema 1.1">rdf-schema<!---0.921186%--></a></cite><!---0.921186%-->]</td>
+            </tr>
+               <tr>
+              <td>owl</td>
+              <td>http://www.w3.org/2002/07/owl#</td>
+              <td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-owl2-overview" title="OWL 2 Web Ontology Language Document Overview (Second Edition)">owl2-overview<!---0.921186%--></a></cite><!---0.921186%-->]</td>
+            </tr>
+          <tr>
+              <td>xsd</td>
+              <td>http://www.w3.org/2001/XMLSchema#</td>
+              <td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-xmlschema11-2" title="W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes">xmlschema11-2<!---0.921186%--></a></cite><!---0.921186%-->]</td>
+            </tr>
+            <tr>
+              <td>skos</td>
+              <td>http://www.w3.org/2004/02/skos/core#</td>
+              <td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-skos-reference" title="SKOS Simple Knowledge Organization System Reference">skos-reference<!---0.921186%--></a></cite><!---0.921186%-->]</td>
+            </tr>
+            <tr>
+              <td>dcterms</td>
+              <td>http://purl.org/dc/terms/</td>
+              <td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-dcterms" title="DCMI Metadata Terms">dcterms<!---0.921186%--></a></cite><!---0.921186%-->]</td>
+            </tr>
+              <tr>
+              <td>vcard</td>
+              <td>http://www.w3.org/2006/vcard/ns#</td>
+              <td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-vcard-rdf" title="vCard Ontology - for describing People and Organizations">vcard-rdf<!---0.921186%--></a></cite><!---0.921186%-->]</td>
+            </tr>
+            <tr>
+              <td>foaf</td>
+              <td>http://xmlns.com/foaf/0.1/</td>
+              <td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-foaf" title="FOAF Vocabulary Specification 0.99 (Paddington Edition)">foaf<!---0.921186%--></a></cite><!---0.921186%-->]</td>
+            </tr>
+            <tr>
+              <td>schema</td>
+              <td>http://schema.org/</td>
+              <td><a href="http://schema.org/">schema.org</a></td>
+            </tr>
+            <tr>
+              <td>cc</td>
+              <td>https://creativecommons.org/ns#</td>
+              <td><a href="https://creativecommons.org/ns#">creativecommons.org</a></td>
+            </tr>
+            <tr>
+              <td>ods</td>
+              <td>https://www.w3.org/ods/</td>
+              <td><a href="ods.html">ODRL Profile for Usage Control</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </section>
+  
+<section id="references" class="appendix"><!--OddPage--><div class="header-wrapper"><h2 id="a-references"><bdi class="secno">A.<!---0.921186%--> </bdi>References<!---0.921186%--></h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="a-1-normative-references"><bdi class="secno">A.1<!---0.921186%--> </bdi>Normative references<!---0.921186%--></h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix A.1"></a></div>
+    
+    <dl class="bibliography"><dt id="bib-dcterms">[dcterms<!---0.921186%-->]</dt><dd>
+      <a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/"><cite>DCMI Metadata Terms</cite></a>. DCMI Usage Board.  DCMI. 20 January 2020. DCMI Recommendation. URL: <a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/">https://www.dublincore.org/specifications/dublin-core/dcmi-terms/</a><!---0.921186%-->
+    </dd><dt id="bib-foaf">[foaf<!---0.921186%-->]</dt><dd>
+      <a href="http://xmlns.com/foaf/spec"><cite>FOAF Vocabulary Specification 0.99 (Paddington Edition)</cite></a>. Dan Brickley; Libby Miller.  FOAF project. 14 January 2014. URL: <a href="http://xmlns.com/foaf/spec">http://xmlns.com/foaf/spec</a><!---0.921186%-->
+    </dd><dt id="bib-owl2-overview">[owl2-overview<!---0.921186%-->]</dt><dd>
+      <a href="https://www.w3.org/TR/owl2-overview/"><cite>OWL 2 Web Ontology Language Document Overview (Second Edition)</cite></a>. W3C OWL Working Group.  W3C. 11 December 2012. W3C Recommendation. URL: <a href="https://www.w3.org/TR/owl2-overview/">https://www.w3.org/TR/owl2-overview/</a><!---0.921186%-->
+    </dd><dt id="bib-rdf-schema">[rdf-schema<!---0.921186%-->]</dt><dd>
+      <a href="https://www.w3.org/TR/rdf-schema/"><cite>RDF Schema 1.1</cite></a>. Dan Brickley; Ramanathan Guha.  W3C. 25 February 2014. W3C Recommendation. URL: <a href="https://www.w3.org/TR/rdf-schema/">https://www.w3.org/TR/rdf-schema/</a><!---0.921186%-->
+    </dd><dt id="bib-rdf11-concepts">[rdf11-concepts<!---0.921186%-->]</dt><dd>
+      <a href="https://www.w3.org/TR/rdf11-concepts/"><cite>RDF 1.1 Concepts and Abstract Syntax</cite></a>. Richard Cyganiak; David Wood; Markus Lanthaler.  W3C. 25 February 2014. W3C Recommendation. URL: <a href="https://www.w3.org/TR/rdf11-concepts/">https://www.w3.org/TR/rdf11-concepts/</a><!---0.921186%-->
+    </dd><dt id="bib-skos-reference">[skos-reference<!---0.921186%-->]</dt><dd>
+      <a href="https://www.w3.org/TR/skos-reference/"><cite>SKOS Simple Knowledge Organization System Reference</cite></a>. Alistair Miles; Sean Bechhofer.  W3C. 18 August 2009. W3C Recommendation. URL: <a href="https://www.w3.org/TR/skos-reference/">https://www.w3.org/TR/skos-reference/</a><!---0.921186%-->
+    </dd><dt id="bib-vcard-rdf">[vcard-rdf<!---0.921186%-->]</dt><dd>
+      <a href="https://www.w3.org/TR/vcard-rdf/"><cite>vCard Ontology - for describing People and Organizations</cite></a>. Renato Iannella; James McKinney.  W3C. 22 May 2014. W3C Working Group Note. URL: <a href="https://www.w3.org/TR/vcard-rdf/">https://www.w3.org/TR/vcard-rdf/</a><!---0.921186%-->
+    </dd><dt id="bib-xmlschema11-2">[xmlschema11-2<!---0.921186%-->]</dt><dd>
+      <a href="https://www.w3.org/TR/xmlschema11-2/"><cite>W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes</cite></a>. David Peterson; Sandy Gao; Ashok Malhotra; Michael Sperberg-McQueen; Henry Thompson; Paul V. Biron et al.  W3C. 5 April 2012. W3C Recommendation. URL: <a href="https://www.w3.org/TR/xmlschema11-2/">https://www.w3.org/TR/xmlschema11-2/</a><!---0.921186%-->
+    </dd><!---0.921186%--></dl>
+  </section></section><p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement} */
+  let panel = null;
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (type === "keydown" && event.key !== "Enter") return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = target.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        const coords = deriveCoordinates(event);
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+    const panel = target.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
