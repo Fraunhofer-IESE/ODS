@@ -249,12 +249,20 @@ ods:
 	skos:note "It is optional to explicitly specify a data usage control component that is responsible for providing context information or executing a duty action."@en ;
 	rdfs:label "Usage Control Component"@en .
 
-:usageControlComponent
+:hasPIP
 	a rdf:Property , owl:ObjectProperty, skos:Concept ;
 	rdfs:isDefinedBy ods: ;
-	rdfs:label "has Usage Control Component"@en ;
-	skos:definition "?"@en ;
-	rdfs:domain :UsageControlComponent ;
+	rdfs:label "has Policy Information Point"@en ;
+	skos:definition "A Usage Control Component that provides needed information for evaluating a constraint."@en ;
+	rdfs:domain :Constraint ;
+	rdfs:range :UsageControlComponent  .
+
+:hasPXP
+	a rdf:Property , owl:ObjectProperty, skos:Concept ;
+	rdfs:isDefinedBy ods: ;
+	rdfs:label "has Policy Execution Point"@en ;
+	skos:definition "A Usage Control Component that executes an action."@en ;
+	rdfs:domain :Action ;
 	rdfs:range :UsageControlComponent  .
 
 :interfaceDescription

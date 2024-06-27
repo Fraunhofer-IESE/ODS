@@ -42,12 +42,12 @@
         group: "odrl",
         logos: [
           {
-            src: "ODS-128.png",
-            url: "ODS-128.png",
+            src: "https://github.com/Fraunhofer-IESE/ODS/blob/main/ODS-128.png?raw=true",
+            url: "https://github.com/Fraunhofer-IESE/ODS/blob/main/ODS-128.png?raw=true",
             alt: "ODS Logo",
             id: "ods-logo",
-            height: 128,
-            width: 128
+            height: 96,
+            width: 96
           },
         ], 
         otherLinks: [
@@ -94,6 +94,8 @@
     </section>
     <section>
       <h2>ods Vocabulary</h2>
+      <p>The figure below illustrates the concepts defined by the ODRL Profile for Data Sovereignty.</p>
+      <img src="https://github.com/Fraunhofer-IESE/ODS/blob/develop/media/ods-profile-0-1.png?raw=true" alt="ods concepts" />
       <section>
         <h3>Data Usage Control Concepts</h3>
         <p>Data Usage Control can be defined as an extension of attribute-based Access Control. At <a target="_blank" href="https://www.iese.fraunhofer.de/en/services/security/datenschutz/my-data-control-technologies.html">Fraunhofer IESE</a>, an architecture for Data Usage Control is introduced that extends the <a target="_blank" href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html">XACML architecture</a> for enfocing usage control policies. According to this architecture, a Policy Information Point (PIP) can provide any required information from defined sources. Moreover, Policy Execution Point (PXP) is added to the architecture. PXP can be used to specify and execute an action of a duty in order to fulfill an obligation.</p>
@@ -106,11 +108,19 @@
           <tr><th>Instances:</th> <td><a href="#term-pip">Policy Information Point</a>, <a href="#term-pxp">Policy Execution Point</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-usage-control-component-left-operand"><h4>has Usage Control Component</h4><table class="def propdef">
-          <tbody><tr><th>Definition:</th><td>It refers to a data usage control component.</td></tr>
-          <tr><th>Label:</th><td>has Usage Control Component</td></tr>
-          <tr><th>Identifier:</th><td><a href="https://www.w3.org/ods/usageControlComponent">https://www.w3.org/ods/usageControlComponent </a></td></tr>
-          <tr><th>Domain:</th> <td><a href="#term-usage-control-component">Usage Control Component</a></td></tr>
+        <section id="term-usage-control-component-left-operand"><h4>has Policy Information Point</h4><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>A Usage Control Component that provides needed information for evaluating a constraint.</td></tr>
+          <tr><th>Label:</th><td>has Policy Information Point</td></tr>
+          <tr><th>Identifier:</th><td><a href="https://www.w3.org/ods/hasPIP">https://www.w3.org/ods/hasPIP</a></td></tr>
+          <tr><th>Domain:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">Action</a></td></tr>
+          <tr><th>Range:</th> <td><a href="#term-usage-control-component">Usage Control Component</a></td></tr>
+          </tbody></table>
+        </section>
+        <section id="term-usage-control-component-left-operand"><h4>has Policy Execution Point</h4><table class="def propdef">
+          <tbody><tr><th>Definition:</th><td>A Usage Control Component that executes an action.</td></tr>
+          <tr><th>Label:</th><td>has Policy Execution Point</td></tr>
+          <tr><th>Identifier:</th><td><a href="https://www.w3.org/ods/hasPXP">https://www.w3.org/ods/hasPXP</a></td></tr>
+          <tr><th>Domain:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">Action</a></td></tr>
           <tr><th>Range:</th> <td><a href="#term-usage-control-component">Usage Control Component</a></td></tr>
           </tbody></table>
         </section>
@@ -560,6 +570,40 @@
                   }]
               }]
           }
+          </pre>
+        </aside>
+      </section>
+      <section>
+        <h3>Allow data usage on emergency</h3>
+        <aside class="example">
+          <p>This policy permits the use of the data when the current state is an emergency.</p>
+          <pre class="json">
+            {
+              "@context": [
+                "http://www.w3.org/ns/odrl.jsonld",
+                { "dc": "http://purl.org/dc/terms/"},
+                { "ods": "https://www.w3.org/ods"}
+              ],
+              "@type": "Offer",
+              "uid": "http://example.com/policy/restrict-on-state/42",
+              "profile": "https://www.w3.org/ods",
+              "dc:issued": "2024-06-27T12:00",
+              "permission": [{
+                "target": "http://example.com/data/789",
+                "assigner": "http://example.com/party/123",
+                "action": "use",
+                "constraint": [{
+                  "leftOperand": "ods:state",
+                  "operator": "eq",
+                  "rightOperand":  [{ "@value": "emergency", "@type": "xsd:string" }],
+                  "ods:hasPIP": [{
+                     "@type":"ods:PIP",
+                     "ods:interfaceDescription":{ "@value":"?interfaceURI", "@type":"xsd:anyURI" }, 
+                     "ods:endpointURI":{ "@value":"?endPointURI", "@type":"xsd:anyURI" } 
+                 }]
+               }]
+              }]
+            }
           </pre>
         </aside>
       </section>
