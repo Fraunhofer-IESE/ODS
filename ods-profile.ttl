@@ -164,15 +164,17 @@ ods:
 ## SKOS Collections for Grouping related concepts.
 ## ods Vocabulary
 
-<https://example.com/ods/odrl-profile/#UsageControlComponentConcepts>
+<https://www.w3.org/ods/#data-usage-control-concepts>
     a skos:Collection ;
     skos:prefLabel "Usage Control Component"@en ;
     skos:scopeNote "oac Vocabulary Terms"@en ;
     skos:member :UsageControlComponent ;
+	skos:member :hasPIP ;
+	skos:member :hasPXP ;
     skos:member :interfaceDescription ;
     skos:member :endpointURI .
 
-<https://example.com/ods/odrl-profile/#constraintRelationalOperators>
+<https://www.w3.org/ods/#constraint-operators>
 	a skos:Collection ;
 	skos:prefLabel "Constraint Operators"@en ;
 	skos:scopeNote "oac Vocabulary Terms"@en ;
@@ -180,7 +182,7 @@ ods:
 	skos:member ods:in ;
 	skos:member ods:subset .
 
-<https://example.com/ods/odrl-profile/#actionsCommon>
+<https://www.w3.org/ods/#actions-for-rules>
     a skos:Collection ;
     skos:prefLabel "Actions for Rules"@en ;
     skos:scopeNote "ods Vocabulary Terms"@en ;
@@ -196,7 +198,7 @@ ods:
     skos:member ods:replace ;
     skos:member ods:shuffle .
 
-<https://example.com/ods/odrl-profile/#constraintLeftOperandCommon>
+<https://www.w3.org/ods/#constraint-left-operands>
     a skos:Collection ;
     skos:prefLabel "Constraint Left Operands"@en ;
     skos:scopeNote "ods Vocabulary Terms"@en ;
@@ -220,10 +222,10 @@ ods:
     skos:member ods:xpath ;
 
 
-<https://example.com/ods/odrl-profile/#constraintRightOpCommon>
+<https://www.w3.org/ods/#constraint-right-operands>
 	a skos:Collection ;
-	skos:prefLabel "Constraint Right Operands"@en ;
-	skos:scopeNote "ods Vocabulary Terms"@en ;
+    skos:prefLabel "Constraint Right Operands"@en ;
+    skos:scopeNote "ods Vocabulary Terms"@en ;
 	# values for Artifact State
 	skos:member ods:anonymized ;
 	skos:member ods:combined  ;
