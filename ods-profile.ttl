@@ -10,7 +10,7 @@
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix cc: <http://creativecommons.org/ns#> .
 
-@prefix ods: <https:// > .
+@prefix ods: <https://www.w3.org/ods/> .
 
 ods:
 	a owl:Ontology ;
@@ -25,7 +25,7 @@ ods:
 	vann:preferredNamespaceUri "https://w3id.org/ods#"^^xsd:string ;
 	dcterms:created "2023-03-13"^^xsd:date ;
 	dcterms:modified "2024-05-14"^^xsd:date ;
-	foaf:logo <https:// .ico> ;
+	foaf:logo <https://github.com/Fraunhofer-IESE/ODS/blob/main/ODS-128.png> ;
 	dct:license <https://www.apache.org/licenses/LICENSE-2.0.txt> .
 
 ## SKOS Collections for Grouping related concepts.
