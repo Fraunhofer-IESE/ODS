@@ -169,6 +169,8 @@ ods:
     skos:prefLabel "Usage Control Component"@en ;
     skos:scopeNote "oac Vocabulary Terms"@en ;
     skos:member :UsageControlComponent ;
+	skos:member :hasPIP ;
+	skos:member :hasPXP ;
     skos:member :interfaceDescription ;
     skos:member :endpointURI .
 
@@ -222,8 +224,8 @@ ods:
 
 <https://example.com/ods/odrl-profile/#constraintRightOpCommon>
 	a skos:Collection ;
-	skos:prefLabel "Constraint Right Operands"@en ;
-	skos:scopeNote "ods Vocabulary Terms"@en ;
+    skos:prefLabel "Constraint Left Operands"@en ;
+    skos:scopeNote "ods Vocabulary Terms"@en ;
 	# values for Artifact State
 	skos:member ods:anonymized ;
 	skos:member ods:combined  ;
