@@ -188,6 +188,7 @@ ods:
     skos:scopeNote "ods Vocabulary Terms"@en ;
     skos:member ods:add ;
     skos:member ods:divide ;
+    skos:member ods:drop ;
     skos:member ods:encrypt ;
     skos:member ods:hash ;
     skos:member ods:log ;
@@ -317,6 +318,15 @@ ods:divide
 	rdfs:label "Divide"@en ;
 	skos:definition "To modify a number by dividing it by a given value."@en ;
 	skos:note "The field to be modified can be specified using ods:jsonPath or ods:xPath and the given value can be specified using ods:operand."@en ;
+	skos:scopeNote "Non-Normative"@en .
+
+ods:drop
+	a :Action, skos:Concept ;
+	rdfs:isDefinedBy ods: ;
+	:includedIn odrl:use ;
+	rdfs:label "Drop"@en ;
+	skos:definition "To drop the value of a field."@en ;
+	skos:note "The field to be modified can be specified using ods:jsonPath or ods:xPath."@en ;
 	skos:scopeNote "Non-Normative"@en .
 
 ods:encrypt
