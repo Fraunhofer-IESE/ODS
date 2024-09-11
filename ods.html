@@ -12,7 +12,10 @@
     <script class="remove">
       // All config options at https://respec.org/docs/
       var respecConfig = {
-        specStatus: "unofficial",
+        publishDate: "2024-08-22",
+		modificationDate: "2024-09-09",
+		latestVersion: "https://w3id.org/ods/",
+		specStatus: "FINAL",
         editors: [
         {
           name: "Arghavan Hosseinzadeh",
@@ -99,160 +102,160 @@
       <section>
         <h3>Data Usage Control Concepts</h3>
         <p>Data Usage Control can be defined as an extension of attribute-based Access Control. At <a target="_blank" href="https://www.iese.fraunhofer.de/en/services/security/datenschutz/my-data-control-technologies.html">Fraunhofer IESE</a>, an architecture for Data Usage Control is introduced that extends the <a target="_blank" href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html">XACML architecture</a> for enfocing usage control policies. According to this architecture, a Policy Information Point (PIP) can provide any required information from defined sources. Moreover, Policy Execution Point (PXP) is added to the architecture. PXP can be used to specify and execute an action of a duty in order to fulfill an obligation.</p>
-        <section id="term-usage-control-component"><h4>Usage Control Component</h4><table class="def propdef">
+        <section id="UsageControlComponent"><h4>Usage Control Component</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>A data usage control component</td></tr>
           <tr><th>Label:</th><td>Usage Control Component</td></tr>
-          <tr><th>Identifier:</th><td><a href="https://www.w3.org/ods/UsageControlComponent">https://www.w3.org/ods/UsageControlComponent</a></td></tr>
+          <tr><th>Identifier:</th><td><a href="#UsageControlComponent">https://w3id.org/ods/UsageControlComponent</a></td></tr>
           <tr><th>Note:</th><td>It is optional to explicitly specify a data usage control component that is responsible for providing context information or executing a duty action.</td></tr>
-          <tr><th>Properties:</th> <td><a href="#term-interface-description">Interface Description</a>, <a href="#term-endpoint-uri">Endpoint URI</a></td></tr>
-          <tr><th>Instances:</th> <td><a href="#term-pip">Policy Information Point</a>, <a href="#term-pxp">Policy Execution Point</a></td></tr>
+          <tr><th>Properties:</th> <td><a href="#interfaceDescription">Interface Description</a>, <a href="#endpointURI">Endpoint URI</a></td></tr>
+          <tr><th>Instances:</th> <td><a href="#PIP">Policy Information Point</a>, <a href="#PXP">Policy Execution Point</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-usage-control-component-left-operand"><h4>has Policy Information Point</h4><table class="def propdef">
+        <section id="hasPIP"><h4>has Policy Information Point</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>A Usage Control Component that provides needed information for evaluating a constraint.</td></tr>
           <tr><th>Label:</th><td>has Policy Information Point</td></tr>
-          <tr><th>Identifier:</th><td><a href="https://www.w3.org/ods/hasPIP">https://www.w3.org/ods/hasPIP</a></td></tr>
+          <tr><th>Identifier:</th><td><a href="#hasPIP">https://w3id.org/ods/hasPIP</a></td></tr>
           <tr><th>Domain:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">Action</a></td></tr>
-          <tr><th>Range:</th> <td><a href="#term-usage-control-component">Usage Control Component</a></td></tr>
+          <tr><th>Range:</th> <td><a href="#UsageControlComponent">Usage Control Component</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-usage-control-component-left-operand"><h4>has Policy Execution Point</h4><table class="def propdef">
+        <section id="hasPXP"><h4>has Policy Execution Point</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>A Usage Control Component that executes an action.</td></tr>
           <tr><th>Label:</th><td>has Policy Execution Point</td></tr>
-          <tr><th>Identifier:</th><td><a href="https://www.w3.org/ods/hasPXP">https://www.w3.org/ods/hasPXP</a></td></tr>
+          <tr><th>Identifier:</th><td><a href="#hasPXP">https://w3id.org/ods/hasPXP</a></td></tr>
           <tr><th>Domain:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">Action</a></td></tr>
-          <tr><th>Range:</th> <td><a href="#term-usage-control-component">Usage Control Component</a></td></tr>
+          <tr><th>Range:</th> <td><a href="#UsageControlComponent">Usage Control Component</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-interface-description"><h4>Interface Description</h4><table class="def propdef">
+        <section id="interfaceDescription"><h4>Interface Description</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>The reference to a URI that provides the interface description of a usage control endpoint.</td></tr>
           <tr><th>Label:</th><td>Interface Description</td></tr>
-          <tr><th>Identifier:</th><td><a href="https://www.w3.org/ods/interfaceDescription">https://www.w3.org/ods/interfaceDescription</a></td></tr>
-          <tr><th>Domain:</th> <td><a href="#term-usage-control-component">Usage Control Component</a></td></tr>
-          <tr><th>Range:</th> <td><a href="#term-usage-control-component">Usage Control Component</a></td></tr>
+          <tr><th>Identifier:</th><td><a href="#interfaceDescription">https://w3id.org/ods/interfaceDescription</a></td></tr>
+          <tr><th>Domain:</th> <td><a href="#UsageControlComponent">Usage Control Component</a></td></tr>
+          <tr><th>Range:</th> <td><a href="#UsageControlComponent">Usage Control Component</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-endpoint-uri"><h4>Endpoint URI</h4><table class="def propdef">
+        <section id="endpointURI"><h4>Endpoint URI</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>The reference to a URI that expresses an exact endpoint of that usage control endpoint.</td></tr>
           <tr><th>Label:</th><td>Endpoint URI</td></tr>
-          <tr><th>Identifier:</th><td><a href="https://www.w3.org/ods/endpointURI">https://www.w3.org/ods/endpointURI</a></td></tr>
-          <tr><th>Domain:</th> <td><a href="#term-usage-control-component">Usage Control Component</a></td></tr>
-          <tr><th>Range:</th> <td><a href="#term-usage-control-component">Usage Control Component</a></td></tr>
+          <tr><th>Identifier:</th><td><a href="#endpointURI">https://w3id.org/ods/endpointURI</a></td></tr>
+          <tr><th>Domain:</th> <td><a href="#UsageControlComponent">Usage Control Component</a></td></tr>
+          <tr><th>Range:</th> <td><a href="#UsageControlComponent">Usage Control Component</a></td></tr>
           </tbody></table>
         </section>
       </section>
       <section>
         <h3>Constraint Operators</h3>
-        <section id="term-in"><h4>In</h4><table class="def propdef">
+        <section id="in"><h4>In</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>This operator is used to express the membership of an individual element in a set.</td></tr>
           <tr><th>Label:</th><td>In</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/in">https://www.w3.org/ods/in</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#in">https://w3id.org/ods/in</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Operator">odrl:Operator</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-subset"><h4>Subset</h4><table class="def propdef">
+        <section id="subset"><h4>Subset</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>This operator is used to indicate that one set is entirely contained within another set.</td></tr>
           <tr><th>Label:</th><td>Subset</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/subset">https://www.w3.org/ods/subset</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#subset">https://w3id.org/ods/subset</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Operator">odrl:Operator</a></td></tr>
           </tbody></table>
         </section>
       </section>
       <section>
         <h3>Actions for Rules</h3>
-        <section id="term-add"><h4>Add</h4><table class="def propdef">
+        <section id="add"><h4>Add</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>To modify a number by adding a given value to it.</td></tr>
           <tr><th>Label:</th><td>Add</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/add">https://www.w3.org/ods/add</a></td></tr>
-          <tr><th>Note:</th><td>The field to be modified can be specified using ods:json_path or ods:xpath and the given value can be specified using ods:operand.</td></tr>
+          <tr><th>Identifier:</th> <td><a href="#add">https://w3id.org/ods/add</a></td></tr>
+          <tr><th>Note:</th><td>The field to be modified can be specified using ods:jsonPath or ods:xPath and the given value can be specified using ods:operand.</td></tr>
           <tr><th>Included In:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-use">odrl:use</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">odrl:Action</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-divide"><h4>Divide</h4><table class="def propdef">
+        <section id="divide"><h4>Divide</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>To modify a number by dividing it by a given value.</td></tr>
           <tr><th>Label:</th><td>Divide</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/divide">https://www.w3.org/ods/divide</a></td></tr>
-          <tr><th>Note:</th><td>The field to be modified can be specified using ods:json_path or ods:xpath and the given value can be specified using ods:operand.</td></tr>
+          <tr><th>Identifier:</th> <td><a href="#divide">https://w3id.org/ods/divide</a></td></tr>
+          <tr><th>Note:</th><td>The field to be modified can be specified using ods:jsonPath or ods:xPath and the given value can be specified using ods:operand.</td></tr>
           <tr><th>Included In:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-use">odrl:use</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">odrl:Action</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-encrypt"><h4>Encrypt</h4><table class="def propdef">
+        <section id="encrypt"><h4>Encrypt</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>To encrpyt a data artifact or parts of it to secure it during transmission and to prevent unauthorized access. The encryption algorithm might be specified by a constraint.</td></tr>
           <tr><th>Label:</th><td>Encrypt</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/encrypt">https://www.w3.org/ods/encrypt</a></td></tr>
-          <tr><th>Note:</th><td>The encryption algorithm can be specified using ods:encryption_algorithm (eg. AES).</td></tr>
+          <tr><th>Identifier:</th> <td><a href="#encrypt">https://w3id.org/ods/encrypt</a></td></tr>
+          <tr><th>Note:</th><td>The encryption algorithm can be specified using ods:encryptionAlgorithm (eg. AES).</td></tr>
           <tr><th>Included In:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-use">odrl:use</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">odrl:Action</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-hash"><h4>Hash</h4><table class="def propdef">
+        <section id="hash"><h4>Hash</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>To modify a value by replacing it with a hash of the value.</td></tr>
           <tr><th>Label:</th><td>Hash</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/hash">https://www.w3.org/ods/hash</a></td></tr>
-          <tr><th>Note:</th><td>The field to be modified can be specified using ods:json_path or ods:xpath and the hash algorithm can be specified using ods:hash_algorithm (eg. SHA256).</td></tr>
+          <tr><th>Identifier:</th> <td><a href="#hash">https://w3id.org/ods/hash</a></td></tr>
+          <tr><th>Note:</th><td>The field to be modified can be specified using ods:jsonPath or ods:xpath and the hash algorithm can be specified using ods:hashAlgorithm (eg. SHA256).</td></tr>
           <tr><th>Included In:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-use">odrl:use</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">odrl:Action</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-log"><h4>Log</h4><table class="def propdef">
+        <section id="log"><h4>Log</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>To log information about data usage. It is used to create transparency.</td></tr>
           <tr><th>Label:</th><td>Log</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/log">https://www.w3.org/ods/log</a></td></tr>
-          <tr><th>Note:</th><td>The log level can be specified using ods:log_level left operand.</td></tr>
+          <tr><th>Identifier:</th> <td><a href="#log">https://w3id.org/ods/log</a></td></tr>
+          <tr><th>Note:</th><td>The log level can be specified using ods:logLevel left operand.</td></tr>
           <tr><th>Included In:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-use">odrl:use</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">odrl:Action</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-multiply"><h4>Multiply</h4><table class="def propdef">
+        <section id="multiply"><h4>Multiply</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>To modify a number by multiplying it to a given value.</td></tr>
           <tr><th>Label:</th><td>Multiply</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/multiply">https://www.w3.org/ods/multiply</a></td></tr>
-          <tr><th>Note:</th><td>The field to be modified can be specified using ods:json_path or ods:xpath and the given value can be specified using ods:operand.</td></tr>
+          <tr><th>Identifier:</th> <td><a href="#multiply">https://w3id.org/ods/multiply</a></td></tr>
+          <tr><th>Note:</th><td>The field to be modified can be specified using ods:jsonPath or ods:xPath and the given value can be specified using ods:operand.</td></tr>
           <tr><th>Included In:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-use">odrl:use</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">odrl:Action</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-multiply"><h4>Multiparty Computation</h4><table class="def propdef">
+        <section id="mpc"><h4>Multiparty Computation</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>Secure Multiparty Computation (MPC) is a cryptographic protocol that enables a defined set of parties, each party owning a secret value, to compute a function collaboratively while preserving the privacy of their individual inputs.</td></tr>
           <tr><th>Label:</th><td>Multiparty Computation</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/mpc">https://www.w3.org/ods/mpc</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#mpc">https://w3id.org/ods/mpc</a></td></tr>
           <tr><th>Included In:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-use">odrl:use</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">odrl:Action</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-notify"><h4>Notify</h4><table class="def propdef">
+        <section id="notify"><h4>Notify</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>To notify a party with information about data usage.</td></tr>
           <tr><th>Label:</th><td>Notify</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/notify">https://www.w3.org/ods/notify</a></td></tr>
-          <tr><th>Note:</th><td>The notification level can be specified using ods:notification_level left operand.</td></tr>
+          <tr><th>Identifier:</th> <td><a href="#notify">https://w3id.org/ods/notify</a></td></tr>
+          <tr><th>Note:</th><td>The notification level can be specified using ods:notificationLevel left operand.</td></tr>
           <tr><th>Included In:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-use">odrl:use</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">odrl:Action</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-query"><h4>Query</h4><table class="def propdef">
+        <section id="query"><h4>Query</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>To request for a piece of information or data from an information system or a database.</td></tr>
           <tr><th>Label:</th><td>Query</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/query">https://www.w3.org/ods/query</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#query">https://w3id.org/ods/query</a></td></tr>
           <tr><th>Included In:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-use">odrl:use</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">odrl:Action</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-replace"><h4>Replace</h4><table class="def propdef">
+        <section id="replace"><h4>Replace</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>To replace a field by a given value.</td></tr>
           <tr><th>Label:</th><td>Replace</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/replace">https://www.w3.org/ods/replace</a></td></tr>
-          <tr><th>Note:</th><td>The field to be modified can be specified using ods:json_path or ods:xpath and the given value can be specified using ods:replace_with.</td></tr>
+          <tr><th>Identifier:</th> <td><a href="#replace">https://w3id.org/ods/replace</a></td></tr>
+          <tr><th>Note:</th><td>The field to be modified can be specified using ods:jsonPath or ods:xpath and the given value can be specified using ods:replaceWith.</td></tr>
           <tr><th>Included In:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-use">odrl:use</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">odrl:Action</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-shuffle"><h4>Shuffle</h4><table class="def propdef">
+        <section id="shuffle"><h4>Shuffle</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>To replace a field with an anagram of it's value.</td></tr>
           <tr><th>Label:</th><td>Shuffle</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/shuffle">https://www.w3.org/ods/shuffle</a></td></tr>
-          <tr><th>Note:</th><td>The field to be modified can be specified using ods:json_path or ods:xpath.</td></tr>
+          <tr><th>Identifier:</th> <td><a href="#shuffle">https://w3id.org/ods/shuffle</a></td></tr>
+          <tr><th>Note:</th><td>The field to be modified can be specified using ods:jsonPath or ods:xPath.</td></tr>
           <tr><th>Included In:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-use">odrl:use</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-Action">odrl:Action</a></td></tr>
           </tbody></table>
@@ -260,230 +263,230 @@
       </section>
       <section>
         <h3>Usage Control Components</h3>
-        <section id="term-pip"><h4>Policy Information Point</h4><table class="def propdef">
+        <section id="PIP"><h4>Policy Information Point</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>Refers to the PIP that provides a specific piece of information (URI/reference to an associated PIP interface).</td></tr>
           <tr><th>Label:</th><td>Policy Information Point</td></tr>
-          <tr><th>Identifier:</th><td><a href="https://www.w3.org/ods/PIP">https://www.w3.org/ods/PIP</a></td></tr>
+          <tr><th>Identifier:</th><td><a href="#PIP">https://w3id.org/ods/PIP</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-usage-control-component">ods:UsageControlComponent</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-pxp"><h4>Policy Execution Point</h4><table class="def propdef">
+        <section id="PXP"><h4>Policy Execution Point</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>The reference to the PXP that operates a specific action, URI or reference to an associated PXP interface.</td></tr>
           <tr><th>Label:</th><td>Policy Execution Point</td></tr>
-          <tr><th>Identifier:</th><td><a href="https://www.w3.org/ods/PXP">https://www.w3.org/ods/PXP</a></td></tr>
+          <tr><th>Identifier:</th><td><a href="#PXP">https://w3id.org/ods/PXP</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-usage-control-component">ods:UsageControlComponent</a></td></tr>
           </tbody></table>
         </section>
       </section>
       <section>
         <h3>Constraint Left Operands</h3>
-        <section id="term-application"><h4>Application</h4><table class="def propdef">
+        <section id="application"><h4>Application</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>An application is a program or piece of software designed to fulfill a particular purpose.</td></tr>
           <tr><th>Label:</th><td>Application</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/application">https://www.w3.org/ods/application</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#application">https://w3id.org/ods/application</a></td></tr>
           <!-- <tr><th>Note:</th><td>note here</td></tr> -->
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-artifact-state"><h4>Artifact State</h4><table class="def propdef">
+        <section id="artifactState"><h4>Artifact State</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>It refers to the status of a data asset.</td></tr>
           <tr><th>Label:</th><td>Artifact State</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/artifact_state">https://www.w3.org/ods/artifact_state</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#artifactState">https://w3id.org/ods/artifactState</a></td></tr>
           <tr><th>Note:</th><td>This operand accepts the following values: ods:anonymized, ods:combined, ods:encrypted, ods:pseudonymized.</td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-endpoint"><h4>Endpoint</h4><table class="def propdef">
+        <section id="endpoint"><h4>Endpoint</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>An endpoint refers to a specific address or connection point.</td></tr>
           <tr><th>Label:</th><td>Endpoint</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/endpoint">https://www.w3.org/ods/endpoint</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#endpoint">https://w3id.org/ods/endpoint</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-function"><h4>Function</h4><table class="def propdef">
+        <section id="function"><h4>Function</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>A function encapsulates a reusable logic.</td></tr>
           <tr><th>Label:</th><td>Function</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/function">https://www.w3.org/ods/function</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#function">https://w3id.org/ods/function</a></td></tr>
           <tr><th>Note:</th><td>In mathematical contexts, examples include ods:maximum, ods:minimum, and ods:sum.</td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-hash-algorithm"><h4>Hash Algorithm</h4><table class="def propdef">
+        <section id="hashAlgorithm"><h4>Hash Algorithm</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>It indicates the hash value to be used.</td></tr>
           <tr><th>Label:</th><td>Hash Algorithm</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/hash_algorithm">https://www.w3.org/ods/hash_algorithm</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#hashAlgorithm">https://w3id.org/ods/hashAlgorithm</a></td></tr>
           <tr><th>Note:</th><td>For example, SHA256.</td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-encryption-algorithm"><h4>Encryption Algorithm</h4><table class="def propdef">
+        <section id="encryptionAlgorithm"><h4>Encryption Algorithm</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>It indicates the encryption algorithm to be used.</td></tr>
           <tr><th>Label:</th><td>Encryption Algorithm</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/encryption-algorithm">https://www.w3.org/ods/encryption-algorithm</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#encryptionAlgorithm">https://w3id.org/ods/encryptionAlgorithm</a></td></tr>
           <tr><th>Note:</th><td>For example, AES.</td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-json-path"><h4>JSONPath</h4><table class="def propdef">
+        <section id="jsonPath"><h4>JSONPath</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>An expression that refers to a part of a JSON structured data.</td></tr>
           <tr><th>Label:</th><td>JSONPath</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/json_path">https://www.w3.org/ods/json_path</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#jsonPath">https://w3id.org/ods/jsonPath</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-json-string-path"><h4>JSON String Path</h4><table class="def propdef">
+        <section id="jsonStringPath"><h4>JSON String Path</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>An expression that refers to a part of a JSON structured data.</td></tr>
           <tr><th>Label:</th><td>JSON String Path</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/json_string_path">https://www.w3.org/ods/json_string_path</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#jsonStringPath">https://w3id.org/ods/jsonStringPath</a></td></tr>
           <tr><th>Note:</th><td>It is used by <a target="_blank" href="https://www.openpolicyagent.org/docs/latest/policy-language/">Rego</a> policy language.</td></tr>
           <tr><th>Class:</th><td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-log-level"><h4>Log Level</h4><table class="def propdef">
+        <section id="logLevel"><h4>Log Level</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>It refers to the log level.</td></tr>
           <tr><th>Label:</th><td>Log Level</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/log_level">https://www.w3.org/ods/log_level</a></td></tr>
-          <tr><th>Note:</th><td>This operand accepts the following values: ods:on_action_operated, ods:on_allow, ods:on_deny, ods:on_duty_exercised.</td></tr>
+          <tr><th>Identifier:</th> <td><a href="#logLevel">https://w3id.org/ods/logLevel</a></td></tr>
+          <tr><th>Note:</th><td>This operand accepts the following values: ods:onActionOperated, ods:onAllow, ods:onDeny, ods:onDutyExercised.</td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-notification-level"><h4>Notification Level</h4><table class="def propdef">
+        <section id="notificationLevel"><h4>Notification Level</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>It refers to the notification level.</td></tr>
           <tr><th>Label:</th><td>Notification Level</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/notification_level">https://www.w3.org/ods/notification_level</a></td></tr>
-          <tr><th>Note:</th><td>This operand accepts the following values: ods:on_action_operated, ods:on_allow, ods:on_deny, ods:on_duty_exercised.</td></tr>
+          <tr><th>Identifier:</th> <td><a href="#notificationLevel">https://w3id.org/ods/notificationLevel</a></td></tr>
+          <tr><th>Note:</th><td>This operand accepts the following values: ods:onActionOperated, ods:onAllow, ods:onDeny, ods:onDutyExercised.</td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-operand"><h4>Operand</h4><table class="def propdef">
+        <section id="operand"><h4>Operand</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>An operand is a required element within an arithmetic or logical operation.</td></tr>
           <tr><th>Label:</th><td>Operand</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/operand">https://www.w3.org/ods/operand</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#operand">https://w3id.org/ods/operand</a></td></tr>
           <tr><th>Note:</th><td>Operands can be numeric values or expressions.</td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-path"><h4>Path</h4><table class="def propdef">
+        <section id="path"><h4>Path</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>An expression that refers to a file within a system, or an element within a hierarchical structure.</td></tr>
           <tr><th>Label:</th><td>Path</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/path">https://www.w3.org/ods/path</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#path">https://w3id.org/ods/path</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-replace-with"><h4>Replace With</h4><table class="def propdef">
+        <section id="replaceWith"><h4>Replace With</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>It specifies a new value for a specific field.</td></tr>
           <tr><th>Label:</th><td>Replace With</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/replace_with">https://www.w3.org/ods/replace_with</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#replaceWith">https://w3id.org/ods/replaceWith</a></td></tr>
           <tr><th>Note:</th><td>It gives a value for ods:replace action.</td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-role"><h4>Role</h4><table class="def propdef">
+        <section id="role"><h4>Role</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>Role refers to an end user's role.</td></tr>
           <tr><th>Label:</th><td>Role</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/role">https://www.w3.org/ods/role</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#role">https://w3id.org/ods/role</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-state"><h4>State</h4><table class="def propdef">
+        <section id="state"><h4>State</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>It refers to an environment state.</td></tr>
           <tr><th>Label:</th><td>State</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/state">https://www.w3.org/ods/state</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#state">https://w3id.org/ods/state</a></td></tr>
           <tr><th>Note:</th><td>Not be confused with artifact state.</td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-user"><h4>User</h4><table class="def propdef">
+        <section id="user"><h4>User</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>It refers to a particular end user.</td></tr>
           <tr><th>Label:</th><td>User</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/user">https://www.w3.org/ods/user</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#user">https://w3id.org/ods/user</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-xpath"><h4>XPath</h4><table class="def propdef">
+        <section id="xPath"><h4>XPath</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>An expression that refers to specific elements of an XML document.</td></tr>
           <tr><th>Label:</th><td>XPath</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/xpath">https://www.w3.org/ods/xpath</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#xPath">https://w3id.org/ods/xPath</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-LeftOperand">odrl:LeftOperand</a></td></tr>
           </tbody></table>
         </section>
       </section>
       <section>
         <h3>Constraint Right Operands</h3>
-        <section id="term-anonymized"><h4>Anonymized</h4><table class="def propdef">
+        <section id="anonymized"><h4>Anonymized</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>Indicates that the asset is anonymized.</td></tr>
           <tr><th>Label:</th><td>Anonymized</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/anonymized">https://www.w3.org/ods/anonymized</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#anonymized">https://w3id.org/ods/anonymized</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-RightOperand">odrl:RightOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-combined"><h4>Combined</h4><table class="def propdef">
+        <section id="combined"><h4>Combined</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>Indicates that the asset is combined.</td></tr>
           <tr><th>Label:</th><td>Combined</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/combined">https://www.w3.org/ods/combined</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#combined">https://w3id.org/ods/combined</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-RightOperand">odrl:RightOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-encrypted"><h4>Encrypted</h4><table class="def propdef">
+        <section id="encrypted"><h4>Encrypted</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>Indicates that the asset is encrypted.</td></tr>
           <tr><th>Label:</th><td>Encrypted</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/encrypted">https://www.w3.org/ods/encrypted</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#encrypted">https://w3id.org/ods/encrypted</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-RightOperand">odrl:RightOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-maximum"><h4>Maximum</h4><table class="def propdef">
+        <section id="maximum"><h4>Maximum</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>The maximum function to determine the largest value among a set of numbers.</td></tr>
           <tr><th>Label:</th><td>Maximum</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/maximum">https://www.w3.org/ods/maximum</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#maximum">https://w3id.org/ods/maximum</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-RightOperand">odrl:RightOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-minimum"><h4>Minimum</h4><table class="def propdef">
+        <section id="minimum"><h4>Minimum</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>The minimum function to determine the smallest value among a set of numbers.</td></tr>
           <tr><th>Label:</th><td>Minimum</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/minimum">https://www.w3.org/ods/minimum</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#minimum">https://w3id.org/ods/minimum</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-RightOperand">odrl:RightOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-on-action-operated"><h4>On action operated</h4><table class="def propdef">
+        <section id="onActionOperated"><h4>On action operated</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>Log usage information or notify a party when the action of the rule is operated.</td></tr>
           <tr><th>Label:</th><td>On action operated</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/on_action_operated">https://www.w3.org/ods/on_action_operated</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#onActionOperated">https://w3id.org/ods/onActionOperated</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-RightOperand">odrl:RightOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-on-allow"><h4>On allow</h4><table class="def propdef">
+        <section id="onAllow"><h4>On allow</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>Log usage information or notify a party when performing the action of the rule is permitted.</td></tr>
           <tr><th>Label:</th><td>On allow</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/on_allow">https://www.w3.org/ods/on_allow</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#onAllow">https://w3id.org/ods/onAllow</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-RightOperand">odrl:RightOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-on-deny"><h4>On deny</h4><table class="def propdef">
+        <section id="onDeny"><h4>On deny</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>Log usage information or notify a party when performing the action of the rule is prohibited.</td></tr>
           <tr><th>Label:</th><td>On deny</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/on_deny">https://www.w3.org/ods/on_deny</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#onDeny">https://w3id.org/ods/onDeny</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-RightOperand">odrl:RightOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-on-duty-exercised"><h4>On duty exercised</h4><table class="def propdef">
+        <section id="onDutyExercised"><h4>On duty exercised</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>Log usage information or notify a party when the action of the duty is executed.</td></tr>
           <tr><th>Label:</th><td>On duty exercised</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/on_duty_exercised">https://www.w3.org/ods/on_duty_exercised</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#onDutyExercised">https://w3id.org/ods/onDutyExercised</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-RightOperand">odrl:RightOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-pseudonymized"><h4>Pseudonymized</h4><table class="def propdef">
+        <section id="pseudonymized"><h4>Pseudonymized</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>Indicates that the asset is pseudonymized.</td></tr>
           <tr><th>Label:</th><td>Pseudonymized</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/pseudonymized">https://www.w3.org/ods/pseudonymized</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#pseudonymized">https://w3id.org/ods/pseudonymized</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-RightOperand">odrl:RightOperand</a></td></tr>
           </tbody></table>
         </section>
-        <section id="term-sum"><h4>Sum</h4><table class="def propdef">
+        <section id="sum"><h4>Sum</h4><table class="def propdef">
           <tbody><tr><th>Definition:</th><td>The sum function to determine  the total sum of a set of numbers.</td></tr>
           <tr><th>Label:</th><td>Sum</td></tr>
-          <tr><th>Identifier:</th> <td><a href="https://www.w3.org/ods/sum">https://www.w3.org/ods/sum</a></td></tr>
+          <tr><th>Identifier:</th> <td><a href="#sum">https://w3id.org/ods/sum</a></td></tr>
           <tr><th>Class:</th> <td><a href="https://www.w3.org/TR/odrl-vocab/#term-RightOperand">odrl:RightOperand</a></td></tr>
           </tbody></table>
         </section>
@@ -515,11 +518,11 @@
                      "action": [{
                         "rdf:value": { "@id": "ods:replace" },
                         "refinement": [{
-                           "leftOperand": "ods:replace_with",
+                           "leftOperand": "ods:replaceWith",
                            "operator": "eq",
                            "rightOperand": { "@value": "xxxx", "@type": "xsd:string" }
                         },{
-                           "leftOperand": "ods:json_path",
+                           "leftOperand": "ods:jsonPath",
                            "operator": "eq",
                            "rightOperand": { "@value": "$.name", "@type": "xsd:string" }
                         }]
@@ -562,9 +565,9 @@
                            "operator": "eq",
                            "rightOperand": { "@value": "http://example.com/party/123", "@type": "xsd:anyURI" }
                         },{
-                           "leftOperand": "ods:notification_level",
+                           "leftOperand": "ods:notificationLevel",
                            "operator": "eq",
-                           "rightOperand": { "@value": "ods:on_allow", "@type": "xsd:string" }
+                           "rightOperand": { "@value": "ods:onAllow", "@type": "xsd:string" }
                         }]
                      }]
                   }]
@@ -680,7 +683,7 @@
             </tr>
             <tr>
               <td>ods</td>
-              <td>https://www.w3.org/ods/</td>
+              <td>https://w3id.org/ods/</td>
               <td><a href="ods.html">ODRL Profile for Usage Control</a></td>
             </tr>
           </tbody>

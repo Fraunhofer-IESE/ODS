@@ -10,7 +10,7 @@
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix cc: <http://creativecommons.org/ns#> .
 
-@prefix ods: <https://www.w3.org/ods/> .
+@prefix ods: <https://w3id.org/ods/> .
 
 ods:
 	a owl:Ontology ;
@@ -164,7 +164,7 @@ ods:
 ## SKOS Collections for Grouping related concepts.
 ## ods Vocabulary
 
-<https://www.w3.org/ods/#data-usage-control-concepts>
+<https://w3id.org/ods/#data-usage-control-concepts>
     a skos:Collection ;
     skos:prefLabel "Usage Control Component"@en ;
     skos:scopeNote "oac Vocabulary Terms"@en ;
@@ -174,7 +174,7 @@ ods:
     skos:member :interfaceDescription ;
     skos:member :endpointURI .
 
-<https://www.w3.org/ods/#constraint-operators>
+<https://w3id.org/ods/#constraint-operators>
 	a skos:Collection ;
 	skos:prefLabel "Constraint Operators"@en ;
 	skos:scopeNote "oac Vocabulary Terms"@en ;
@@ -182,7 +182,7 @@ ods:
 	skos:member ods:in ;
 	skos:member ods:subset .
 
-<https://www.w3.org/ods/#actions-for-rules>
+<https://w3id.org/ods/#actions-for-rules>
     a skos:Collection ;
     skos:prefLabel "Actions for Rules"@en ;
     skos:scopeNote "ods Vocabulary Terms"@en ;
@@ -198,31 +198,31 @@ ods:
     skos:member ods:replace ;
     skos:member ods:shuffle .
 
-<https://www.w3.org/ods/#constraint-left-operands>
+<https://w3id.org/ods/#constraint-left-operands>
     a skos:Collection ;
     skos:prefLabel "Constraint Left Operands"@en ;
     skos:scopeNote "ods Vocabulary Terms"@en ;
     skos:member ods:application ;
-    skos:member ods:artifact_state ;
+    skos:member ods:artifactState ;
     skos:member ods:endpoint ;
     skos:member ods:function ;
-    skos:member ods:hash_algorithm ;
-    skos:member ods:encryption_algorithm ;
-    skos:member ods:json_path ;
-    skos:member ods:json_string_path ;
-    skos:member ods:log_level ;
-    skos:member ods:notification_level ;
+    skos:member ods:hashAlgorithm ;
+    skos:member ods:encryptionAlgorithm ;
+    skos:member ods:jsonPath ;
+    skos:member ods:jsonStringPath ;
+    skos:member ods:logLevel ;
+    skos:member ods:notificationLevel ;
     skos:member ods:operand ;
     skos:member ods:path ;
     skos:member ods:quantity ;
-    skos:member ods:replace_with ;
+    skos:member ods:replaceWith ;
     skos:member ods:role ;
     skos:member ods:state ;
     skos:member ods:user ;
-    skos:member ods:xpath ;
+    skos:member ods:xPath ;
 
 
-<https://www.w3.org/ods/#constraint-right-operands>
+<https://w3id.org/ods/#constraint-right-operands>
 	a skos:Collection ;
     skos:prefLabel "Constraint Right Operands"@en ;
     skos:scopeNote "ods Vocabulary Terms"@en ;
@@ -232,10 +232,10 @@ ods:
 	skos:member ods:encrypted  ;
 	skos:member ods:pseudonymized  ;
 	# values for Log and Notification Level
-	skos:member ods:on_action_operated   ;
-	skos:member ods:on_allow   ;
-	skos:member ods:on_deny   ;
-	skos:member ods:on_duty_exercised   ;
+	skos:member ods:onActionOperated   ;
+	skos:member ods:onAllow   ;
+	skos:member ods:onDeny   ;
+	skos:member ods:onDutyExercised   ;
 	# values for Function
 	skos:member ods:maximum ;
 	skos:member ods:minimum ;
@@ -307,7 +307,7 @@ ods:add
 	:includedIn odrl:use ;
 	rdfs:label "Add"@en ;
 	skos:definition "To modify a number by adding a given value to it."@en ;
-	skos:note "The field to be modified can be specified using ods:json_path or ods:xpath and the given value can be specified using ods:operand."@en ;
+	skos:note "The field to be modified can be specified using ods:jsonPath or ods:xPath and the given value can be specified using ods:operand."@en ;
 	skos:scopeNote "Non-Normative"@en .
 
 ods:divide
@@ -316,7 +316,7 @@ ods:divide
 	:includedIn odrl:use ;
 	rdfs:label "Divide"@en ;
 	skos:definition "To modify a number by dividing it by a given value."@en ;
-	skos:note "The field to be modified can be specified using ods:json_path or ods:xpath and the given value can be specified using ods:operand."@en ;
+	skos:note "The field to be modified can be specified using ods:jsonPath or ods:xPath and the given value can be specified using ods:operand."@en ;
 	skos:scopeNote "Non-Normative"@en .
 
 ods:encrypt
@@ -325,7 +325,7 @@ ods:encrypt
 	:includedIn odrl:use ;
 	rdfs:label "Encrypt"@en ;
 	skos:definition "To encrpyt a data artifact or parts of it to secure it during transmission and to prevent unauthorized access. The encryption algorithm might be specified by a constraint."@en ;
-	skos:note "The encryption algorithm can be specified using ods:encryption_algorithm (eg. AES)."@en ;
+	skos:note "The encryption algorithm can be specified using ods:encryptionAlgorithm (eg. AES)."@en ;
 	skos:scopeNote "Non-Normative"@en .
 
 ods:hash
@@ -334,7 +334,7 @@ ods:hash
 	:includedIn odrl:use ;
 	rdfs:label "Hash"@en ;
 	skos:definition "To modify a value by replacing it with a hash of the value."@en ;
-	skos:note "The field to be modified can be specified using ods:json_path or ods:xpath and the hash algorithm can be specified using ods:hash_algorithm (eg. SHA256)."@en ;
+	skos:note "The field to be modified can be specified using ods:jsonPath or ods:xPath and the hash algorithm can be specified using ods:hashAlgorithm (eg. SHA256)."@en ;
 	skos:scopeNote "Non-Normative"@en .
 
 ods:log
@@ -343,7 +343,7 @@ ods:log
 	:includedIn odrl:use ;
 	rdfs:label "Log"@en ;
 	skos:definition "To log information about data usage. It is used to create transparency."@en ;
-	skos:note "The log level can be specified using ods:log_level left operand."@en ;
+	skos:note "The log level can be specified using ods:logLevel left operand."@en ;
 	skos:scopeNote "Non-Normative"@en .
 
 ods:multiply
@@ -352,7 +352,7 @@ ods:multiply
 	:includedIn odrl:use ;
 	rdfs:label "Multiply"@en ;
 	skos:definition "To modify a number by multiplying it to a given value."@en ;
-	skos:note "The field to be modified can be specified using ods:json_path or ods:xpath and the given value can be specified using ods:operand."@en ;
+	skos:note "The field to be modified can be specified using ods:jsonPath or ods:xPath and the given value can be specified using ods:operand."@en ;
 	skos:scopeNote "Non-Normative"@en .
 
 ods:mpc
@@ -369,7 +369,7 @@ ods:notify
 	:includedIn odrl:use ;
 	rdfs:label "Notify"@en ;
 	skos:definition "To notify a party with information about data usage."@en ;
-	skos:note "The notification level can be specified using ods:notification_level left operand."@en ;
+	skos:note "The notification level can be specified using ods:notificationLevel left operand."@en ;
 	skos:scopeNote "Non-Normative"@en .
 
 ods:query
@@ -386,7 +386,7 @@ ods:replace
 	:includedIn odrl:use ;
 	rdfs:label "Replace"@en ;
 	skos:definition "To replace a field by a given value."@en ;
-	skos:note "The field to be modified can be specified using ods:json_path or ods:xpath and the given value can be specified using ods:replace_with."@en ;
+	skos:note "The field to be modified can be specified using ods:jsonPath or ods:xPath and the given value can be specified using ods:replaceWith."@en ;
 	skos:scopeNote "Non-Normative"@en .
 
 ods:shuffle
@@ -395,7 +395,7 @@ ods:shuffle
 	:includedIn odrl:use ;
 	rdfs:label "Shuffle"@en ;
 	skos:definition "To replace a field with an anagram of it's value."@en ;
-	skos:note "The field to be modified can be specified using ods:json_path or ods:xpath."@en ;
+	skos:note "The field to be modified can be specified using ods:jsonPath or ods:xPath."@en ;
 	skos:scopeNote "Non-Normative"@en .
 
 
@@ -408,7 +408,7 @@ ods:application
 	skos:definition "An application is a program or piece of software designed to fulfill a particular purpose."@en ;
     skos:scopeNote "Non-Normative"@en .
 
-ods:artifact_state
+ods:artifactState
 	a :LeftOperand, owl:NamedIndividual, skos:Concept ;
 	rdfs:isDefinedBy ods: ;
 	rdfs:label "Artifact State"@en ;
@@ -431,7 +431,7 @@ ods:function
 	skos:note "In mathematical contexts, examples include ods:maximum, ods:minimum, and ods:sum."@en ;
     skos:scopeNote "Non-Normative"@en .
 
-ods:hash_algorithm
+ods:hashAlgorithm
 	a :LeftOperand, owl:NamedIndividual, skos:Concept ;
 	rdfs:isDefinedBy ods: ;
 	rdfs:label "Hash Algorithm"@en ;
@@ -439,7 +439,7 @@ ods:hash_algorithm
 	skos:note "For example, SHA256."@en ;
     skos:scopeNote "Non-Normative"@en .
 
-ods:encryption_algorithm
+ods:encryptionAlgorithm
 	a :LeftOperand, owl:NamedIndividual, skos:Concept ;
 	rdfs:isDefinedBy ods: ;
 	rdfs:label "Encryption Algorithm"@en ;
@@ -447,14 +447,14 @@ ods:encryption_algorithm
 	skos:note "For example, AES."@en ;
     skos:scopeNote "Non-Normative"@en .
 
-ods:json_path
+ods:jsonPath
 	a :LeftOperand, owl:NamedIndividual, skos:Concept ;
 	rdfs:isDefinedBy ods: ;
 	rdfs:label "JSONPath"@en ;
 	skos:definition "An expression that refers to a part of a JSON structured data."@en ;
     skos:scopeNote "Non-Normative"@en .
 
-ods:json_string_path
+ods:jsonStringPath
 	a :LeftOperand, owl:NamedIndividual, skos:Concept ;
 	rdfs:isDefinedBy ods: ;
 	rdfs:label "JSON String Path"@en ;
@@ -462,20 +462,20 @@ ods:json_string_path
 	skos:note "It is used by Rego policy language."@en ;
     skos:scopeNote "Non-Normative"@en .
 
-ods:log_level
+ods:logLevel
 	a :LeftOperand, owl:NamedIndividual, skos:Concept ;
 	rdfs:isDefinedBy ods: ;
 	rdfs:label "Log Level"@en ;
 	skos:definition "It refers to the log level."@en ;
-	skos:note "This operand accepts the following values: ods:on_action_operated, ods:on_allow, ods:on_deny, ods:on_duty_exercised."@en ;
+	skos:note "This operand accepts the following values: ods:onActionOperated, ods:onAllow, ods:onDeny, ods:onDutyExercised."@en ;
     skos:scopeNote "Non-Normative"@en .
 
-ods:notification_level
+ods:notificationLevel
 	a :LeftOperand, owl:NamedIndividual, skos:Concept ;
 	rdfs:isDefinedBy ods: ;
 	rdfs:label "Notification Level"@en ;
 	skos:definition "It refers to the notification level."@en ;
-	skos:note "This operand accepts the following values: ods:on_action_operated, ods:on_allow, ods:on_deny, ods:on_duty_exercised."@en ;
+	skos:note "This operand accepts the following values: ods:onActionOperated, ods:onAllow, ods:onDeny, ods:onDutyExercised."@en ;
     skos:scopeNote "Non-Normative"@en .
 
 ods:operand
@@ -493,7 +493,7 @@ ods:path
 	skos:definition "An expression that refers to a file within a system, or an element within a hierarchical structure."@en ;
 	skos:scopeNote "Non-Normative"@en .
 
-ods:replace_with
+ods:replaceWith
 	a :LeftOperand, owl:NamedIndividual, skos:Concept ;
 	rdfs:isDefinedBy ods: ;
 	rdfs:label "Replace With"@en ;
@@ -523,10 +523,10 @@ ods:user
 	skos:definition "It refers to a particular end user."@en ;
     skos:scopeNote "Non-Normative"@en .
 
-ods:xpath
+ods:xPath
 	a :LeftOperand, owl:NamedIndividual, skos:Concept ;
 	rdfs:isDefinedBy ods: ;
-	rdfs:label "XPath"@en ;
+	rdfs:label "xPath"@en ;
 	skos:definition "An expression that refers to specific elements of an XML document."@en ;
     skos:scopeNote "Non-Normative"@en .
 
@@ -568,28 +568,28 @@ ods:minimum
 	skos:definition "The minimum function to determine the smallest value among a set of numbers."@en ;
     skos:scopeNote "Non-Normative"@en .
 
-ods:on_action_operated
+ods:onActionOperated
 	a :RightOperand, owl:NamedIndividual, skos:Concept ;
 	rdfs:isDefinedBy ods: ;
 	rdfs:label "On action operated"@en ;
 	skos:definition "Log usage information or notify a party when the action of the rule is operated."@en ;
     skos:scopeNote "Non-Normative"@en .
 
-ods:on_allow 
+ods:onAllow 
 	a :RightOperand, owl:NamedIndividual, skos:Concept ;
 	rdfs:isDefinedBy ods: ;
 	rdfs:label "On allow"@en ;
 	skos:definition "Log usage information or notify a party when performing the action of the rule is permitted."@en ;
     skos:scopeNote "Non-Normative"@en .
 
-ods:on_deny
+ods:onDeny
 	a :RightOperand, owl:NamedIndividual, skos:Concept ;
 	rdfs:isDefinedBy ods: ;
 	rdfs:label "On deny"@en ;
 	skos:definition "Log usage information or notify a party when performing the action of the rule is prohibited."@en ;
     skos:scopeNote "Non-Normative"@en .
 
-ods:on_duty_exercised
+ods:onDutyExercised
 	a :RightOperand, owl:NamedIndividual, skos:Concept ;
 	rdfs:isDefinedBy ods: ;
 	rdfs:label "On duty exercised"@en ;
