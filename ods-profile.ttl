@@ -166,18 +166,25 @@ ods:
 
 <https://w3id.org/ods/#data-usage-control-concepts>
     a skos:Collection ;
-    skos:prefLabel "Usage Control Component"@en ;
-    skos:scopeNote "oac Vocabulary Terms"@en ;
+    skos:prefLabel "Data Usage Control Concepts"@en ;
+    skos:scopeNote "ods Vocabulary Terms"@en ;
     skos:member :UsageControlComponent ;
 	skos:member :hasPIP ;
 	skos:member :hasPXP ;
     skos:member :interfaceDescription ;
     skos:member :endpointURI .
 
+<https://w3id.org/ods/#usage-control-components>
+    a skos:Collection ;
+    skos:prefLabel "Usage Control Components"@en ;
+    skos:scopeNote "ods Vocabulary Terms"@en ;
+    skos:member :PIP ;
+	skos:member :PXP .
+
 <https://w3id.org/ods/#constraint-operators>
 	a skos:Collection ;
 	skos:prefLabel "Constraint Operators"@en ;
-	skos:scopeNote "oac Vocabulary Terms"@en ;
+	skos:scopeNote "ods Vocabulary Terms"@en ;
 	# Set operator
 	skos:member ods:in ;
 	skos:member ods:subset .
@@ -283,6 +290,22 @@ ods:
 	skos:definition "The reference to a URI that expresses an exact endpoint of that usage control endpoint."@en ;
 	rdfs:domain :UsageControlComponent ;
 	rdfs:range :UsageControlComponent  .
+
+## Usage Control Components
+
+:PIP
+	a rdfs:Class , owl:Class, skos:Concept ;
+	rdfs:isDefinedBy ods: ;
+	rdfs:subClassOf :UsageControlComponent ;
+	rdfs:label "Policy Information Point"@en ;
+	skos:definition "A Policy Information Point is a Usage Control Component that provides a specific piece of information."@en ;
+
+:PXP
+	a rdfs:Class , owl:Class, skos:Concept ;
+	rdfs:isDefinedBy ods: ;
+	rdfs:subClassOf :UsageControlComponent ;
+	rdfs:label "Policy Execution Point"@en ;
+	skos:definition "A Policy Execution Point is a Usage Control Component that executes a specific action."@en ;
 
 ## ods Operators
 
