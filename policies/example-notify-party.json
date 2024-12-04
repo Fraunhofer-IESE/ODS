@@ -2,7 +2,7 @@
     "@context": [
         "http://www.w3.org/ns/odrl.jsonld",
         { "dc": "http://purl.org/dc/terms/"},
-        { "ods": "https://www.w3.org/ods"}
+        { "ods": "https://w3id.org/ods/"}
     ],
     "@type": "Offer",
     "uid": "http://example.com/policy/notify_party/42",
