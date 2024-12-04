@@ -15,6 +15,17 @@
         "duty": [{
            "action": [{
               "rdf:value": { "@id": "ods:replace" },
+              "ods:hasPXP": [{
+                 "@type": "ods:PXP",
+                 "ods:endpointURI": {
+                    "@type": "xsd:anyURI",
+                    "@value": "https://example.com/endpointURI/replace"
+                 },
+                 "ods:interfaceDescription": {
+                    "@type": "xsd:anyURI",
+                    "@value": "https://example.com/interfaceDescription/replace"
+                 }
+              }],
               "refinement": [{
                  "leftOperand": "ods:replace_with",
                  "operator": "eq",
