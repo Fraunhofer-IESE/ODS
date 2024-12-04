@@ -1,30 +1,30 @@
 {
-    "@context": [
-        "http://www.w3.org/ns/odrl.jsonld",
-        { "dc": "http://purl.org/dc/terms/"},
-        { "ods": "https://w3id.org/ods/"}
-    ],
-    "@type": "Offer",
-    "uid": "http://example.com/policy/notify_party/42",
-    "profile": "http://www.w3.org/ns/odrl/2/core",
-    "dc:issued": "2024-05-15T12:00",
-    "permission": [{
-        "target": "http://example.com/data/789",
-        "assigner": "http://example.com/party/123",
-        "action": "use",
-        "duty": [{
-           "action": [{
-              "rdf:value": { "@id": "ods:notify" },
-              "refinement": [{
-                 "leftOperand": "recipient",
-                 "operator": "eq",
-                 "rightOperand": { "@value": "http://example.com/party/123", "@type": "xsd:anyURI" }
-              },{
-                 "leftOperand": "ods:notification_level",
-                 "operator": "eq",
-                 "rightOperand": { "@value": "ods:on_allow", "@type": "xsd:string" }
-              }]
-           }]
-        }]
-    }]
+  "@context": [
+	  "http://www.w3.org/ns/odrl.jsonld",
+	  { "dc": "http://purl.org/dc/terms/"},
+	  { "ods": "https://w3id.org/ods/"}
+  ],
+  "@type": "Offer",
+  "uid": "http://example.com/policy/notify_party/42",
+  "profile": "https://w3id.org/ods/",
+  "dc:issued": "2024-05-15T12:00",
+  "permission": [{
+	  "target": "http://example.com/data/789",
+	  "assigner": "http://example.com/party/123",
+	  "action": "use",
+	  "duty": [{
+		 "action": [{
+			"rdf:value": { "@id": "ods:notify" },
+			"refinement": [{
+			   "leftOperand": "recipient",
+			   "operator": "eq",
+			   "rightOperand": { "@value": "http://example.com/party/123", "@type": "xsd:anyURI" }
+			},{
+			   "leftOperand": "ods:notificationLevel",
+			   "operator": "eq",
+			   "rightOperand": { "@value": "ods:onAllow", "@type": "xsd:string" }
+			}]
+		 }]
+	  }]
+  }]
 }
