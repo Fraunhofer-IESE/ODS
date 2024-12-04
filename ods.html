@@ -509,41 +509,52 @@
         <aside class="example">
           <p>This policy demands to modify the data before it is used.</p>
           <pre><code class="json">
-            {
-              "@context": [
-                  "http://www.w3.org/ns/odrl.jsonld",
-                  { "dc": "http://purl.org/dc/terms/"},
-                  { "ods": "https://www.w3.org/ods"}
-              ],
-              "@type": "Offer",
-              "uid": "http://example.com/policy/replace-value",
-              "profile": "https://www.w3.org/ods",
-              "dc:issued": "2024-05-15T12:00",
-              "permission": [{
-                  "target": "http://example.com/data/789",
-                  "assigner": "http://example.com/party/123",
-                  "action": "use",
-                  "duty": [{
-                     "action": [{
-                        "rdf:value": { "@id": "ods:replace" },
-                        "refinement": [{
-                           "leftOperand": "ods:replaceWith",
-                           "operator": "eq",
-                           "rightOperand": { "@value": "xxxx", "@type": "xsd:string" }
-                        },{
-                           "leftOperand": "ods:jsonPath",
-                           "operator": "eq",
-                           "rightOperand": { "@value": "$.name", "@type": "xsd:string" }
-                        }]
-                     }],
-                     "constraint": [{
-                         "leftOperand": "event",
-                         "operator": "lt",
-                         "rightOperand": { "@id": "odrl:policyUsage" }
-                     }]
-                  }]
-              }]
-          }
+		  {
+		    "@context": [
+		        "http://www.w3.org/ns/odrl.jsonld",
+		        { "dc": "http://purl.org/dc/terms/"},
+		        { "ods": "https://www.w3.org/ods"}
+		    ],
+		    "@type": "Offer",
+		    "uid": "http://example.com/policy/replace-value",
+		    "profile": "https://www.w3.org/ods",
+		    "dc:issued": "2024-05-15T12:00",
+		    "permission": [{
+		        "target": "http://example.com/data/789",
+		        "assigner": "http://example.com/party/123",
+		        "action": "use",
+		        "duty": [{
+		           "action": [{
+		              "rdf:value": { "@id": "ods:replace" },
+		              "ods:hasPXP": [{
+		                 "@type": "ods:PXP",
+		                 "ods:endpointURI": {
+		                    "@type": "xsd:anyURI",
+		                    "@value": "https://example.com/endpointURI/replace"
+		                 },
+		                 "ods:interfaceDescription": {
+		                    "@type": "xsd:anyURI",
+		                    "@value": "https://example.com/interfaceDescription/replace"
+		                 }
+		              }],
+		              "refinement": [{
+		                 "leftOperand": "ods:replace_with",
+		                 "operator": "eq",
+		                 "rightOperand": { "@value": "xxxx", "@type": "xsd:string" }
+		              },{
+		                 "leftOperand": "ods:json_path",
+		                 "operator": "eq",
+		                 "rightOperand": { "@value": "$.name", "@type": "xsd:string" }
+		              }]
+		           }],
+		           "constraint": [{
+		               "leftOperand": "event",
+		               "operator": "lt",
+		               "rightOperand": { "@id": "odrl:policyUsage" }
+		           }]
+		        }]
+		    }]
+		}
           </code></pre>
         </aside>
       </section>
