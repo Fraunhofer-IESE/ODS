@@ -511,13 +511,13 @@
           <pre><code class="json">
 {
     "@context": [
-        "http://www.w3.org/ns/odrl.jsonld",
-        { "dc": "http://purl.org/dc/terms/"},
-        { "ods": "https://www.w3.org/ods"}
+       "http://www.w3.org/ns/odrl.jsonld",
+       { "dc": "http://purl.org/dc/terms/"},
+       { "ods": "https://w3id.org/ods/"}
     ],
     "@type": "Offer",
     "uid": "http://example.com/policy/replace-value",
-    "profile": "https://www.w3.org/ods",
+    "profile": "https://w3id.org/ods/",
     "dc:issued": "2024-05-15T12:00",
     "permission": [{
         "target": "http://example.com/data/789",
@@ -538,11 +538,11 @@
                  }
               }],
               "refinement": [{
-                 "leftOperand": "ods:replace_with",
+                 "leftOperand": "ods:replaceWith",
                  "operator": "eq",
                  "rightOperand": { "@value": "xxxx", "@type": "xsd:string" }
               },{
-                 "leftOperand": "ods:json_path",
+                 "leftOperand": "ods:jsonPath",
                  "operator": "eq",
                  "rightOperand": { "@value": "$.name", "@type": "xsd:string" }
               }]
@@ -567,11 +567,11 @@
               "@context": [
                   "http://www.w3.org/ns/odrl.jsonld",
                   { "dc": "http://purl.org/dc/terms/"},
-                  { "ods": "https://www.w3.org/ods"}
+                  { "ods": "https://w3id.org/ods/"}
               ],
               "@type": "Offer",
               "uid": "http://example.com/policy/notify_party/42",
-              "profile": "https://www.w3.org/ods",
+              "profile": "https://w3id.org/ods/",
               "dc:issued": "2024-05-15T12:00",
               "permission": [{
                   "target": "http://example.com/data/789",
@@ -605,11 +605,11 @@
               "@context": [
                 "http://www.w3.org/ns/odrl.jsonld",
                 { "dc": "http://purl.org/dc/terms/"},
-                { "ods": "https://www.w3.org/ods"}
+                { "ods": "https://w3id.org/ods/"}
               ],
               "@type": "Offer",
               "uid": "http://example.com/policy/restrict-on-state/42",
-              "profile": "https://www.w3.org/ods",
+              "profile": "https://w3id.org/ods/",
               "dc:issued": "2024-06-27T12:00",
               "permission": [{
                 "target": "http://example.com/data/789",
