@@ -526,17 +526,6 @@
         "duty": [{
            "action": [{
               "rdf:value": { "@id": "ods:replace" },
-              "ods:hasPXP": [{
-                 "@type": "ods:PXP",
-                 "ods:endpointURI": {
-                    "@type": "xsd:anyURI",
-                    "@value": "https://example.com/endpointURI/replace"
-                 },
-                 "ods:interfaceDescription": {
-                    "@type": "xsd:anyURI",
-                    "@value": "https://example.com/interfaceDescription/replace"
-                 }
-              }],
               "refinement": [{
                  "leftOperand": "ods:replaceWith",
                  "operator": "eq",
@@ -563,36 +552,47 @@
         <aside class="example">
           <p>This policy demands to notify the data provider when the data is used.</p>
           <pre class="json">
-            {
-              "@context": [
-                  "http://www.w3.org/ns/odrl.jsonld",
-                  { "dc": "http://purl.org/dc/terms/"},
-                  { "ods": "https://w3id.org/ods/"}
-              ],
-              "@type": "Offer",
-              "uid": "http://example.com/policy/notify_party/42",
-              "profile": "https://w3id.org/ods/",
-              "dc:issued": "2024-05-15T12:00",
-              "permission": [{
-                  "target": "http://example.com/data/789",
-                  "assigner": "http://example.com/party/123",
-                  "action": "use",
-                  "duty": [{
-                     "action": [{
-                        "rdf:value": { "@id": "ods:notify" },
-                        "refinement": [{
-                           "leftOperand": "recipient",
-                           "operator": "eq",
-                           "rightOperand": { "@value": "http://example.com/party/123", "@type": "xsd:anyURI" }
-                        },{
-                           "leftOperand": "ods:notificationLevel",
-                           "operator": "eq",
-                           "rightOperand": { "@value": "ods:onAllow", "@type": "xsd:string" }
-                        }]
-                     }]
-                  }]
-              }]
-          }
+{
+  "@context": [
+      "http://www.w3.org/ns/odrl.jsonld",
+      { "dc": "http://purl.org/dc/terms/"},
+      { "ods": "https://w3id.org/ods/"}
+  ],
+  "@type": "Offer",
+  "uid": "http://example.com/policy/notify_party/42",
+  "profile": "https://w3id.org/ods/",
+  "dc:issued": "2024-05-15T12:00",
+  "permission": [{
+      "target": "http://example.com/data/789",
+      "assigner": "http://example.com/party/123",
+      "action": "use",
+      "duty": [{
+        "action": [{
+            "rdf:value": { "@id": "ods:notify" },
+            "ods:hasPXP": [{
+                "@type": "ods:PXP",
+                "ods:endpointURI": {
+                    "@type": "xsd:anyURI",
+                    "@value": "https://example.com/endpointURI/notify"
+                },
+                "ods:interfaceDescription": {
+                    "@type": "xsd:anyURI",
+                    "@value": "https://example.com/interfaceDescription/notify"
+                }
+            }],
+            "refinement": [{
+                "leftOperand": "recipient",
+                "operator": "eq",
+                "rightOperand": { "@value": "http://example.com/party/123", "@type": "xsd:anyURI" }
+            },{
+                "leftOperand": "ods:notificationLevel",
+                "operator": "eq",
+                "rightOperand": { "@value": "ods:onAllow", "@type": "xsd:string" }
+            }]
+        }]
+      }]
+  }]
+}
           </pre>
         </aside>
       </section>
