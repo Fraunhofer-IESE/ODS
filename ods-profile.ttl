@@ -169,6 +169,7 @@ ods:
     skos:prefLabel "Data Usage Control Concepts"@en ;
     skos:scopeNote "ods Vocabulary Terms"@en ;
     skos:member :UsageControlComponent ;
+	skos:member :hasPEP ;
 	skos:member :hasPIP ;
 	skos:member :hasPXP ;
     skos:member :interfaceDescription ;
@@ -227,7 +228,7 @@ ods:
     skos:member ods:role ;
     skos:member ods:state ;
     skos:member ods:user ;
-    skos:member ods:xPath ;
+    skos:member ods:xPath .
 
 
 <https://w3id.org/ods/#constraint-right-operands>
@@ -258,6 +259,14 @@ ods:
 	skos:definition "It refers to data usage control components."@en ;
 	skos:note "It is optional to explicitly specify a data usage control component that is responsible for providing context information or executing a duty action."@en ;
 	rdfs:label "Usage Control Component"@en .
+
+:hasPEP
+	a rdf:Property , owl:ObjectProperty, skos:Concept ;
+	rdfs:isDefinedBy ods: ;
+	rdfs:label "has Policy Enforcement Point"@en ;
+	skos:definition "A Usage Control Component that enforces an authorization decision."@en ;
+	rdfs:domain :Action ;
+	rdfs:range :UsageControlComponent  .
 
 :hasPIP
 	a rdf:Property , owl:ObjectProperty, skos:Concept ;
@@ -292,6 +301,13 @@ ods:
 	rdfs:range :UsageControlComponent  .
 
 ## Usage Control Components
+:PEP
+	a rdfs:Class , owl:Class, skos:Concept ;
+	rdfs:isDefinedBy ods: ;
+	rdfs:subClassOf :UsageControlComponent ;
+	rdfs:label "Policy Enforcement Point"@en ;
+	skos:definition "A Policy Enforcement Point is triggered when an actor attempts to use an asset. It enforces the authorization decision, which is the result of policy evaluation. The decision is either a permit or a prohibition."@en ;
+	skos:scopeNote "Non-Normative"@en .
 
 :PIP
 	a rdfs:Class , owl:Class, skos:Concept ;
@@ -299,13 +315,15 @@ ods:
 	rdfs:subClassOf :UsageControlComponent ;
 	rdfs:label "Policy Information Point"@en ;
 	skos:definition "A Policy Information Point is a Usage Control Component that provides a specific piece of information."@en ;
+	skos:scopeNote "Non-Normative"@en .
 
 :PXP
 	a rdfs:Class , owl:Class, skos:Concept ;
 	rdfs:isDefinedBy ods: ;
 	rdfs:subClassOf :UsageControlComponent ;
 	rdfs:label "Policy Execution Point"@en ;
-	skos:definition "A Policy Execution Point is a Usage Control Component that executes a specific action."@en ;
+	skos:definition "A Policy Execution Point is a Usage Control Component that executes a specific action asynchronously."@en ;
+	skos:scopeNote "Non-Normative"@en .
 
 ## ods Operators
 
